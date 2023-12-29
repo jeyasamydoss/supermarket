@@ -6,6 +6,7 @@ import { UserRoutingModule } from './user.routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { MenuComponent } from './menu/menu.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { MenuComponent } from './menu/menu.component';
     MatIconModule
 ],
 
-  declarations: [UserComponent,UserHeaderComponent,MenuComponent],
+  declarations: [UserComponent,UserHeaderComponent,MenuComponent,ProductComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UserModule { }
