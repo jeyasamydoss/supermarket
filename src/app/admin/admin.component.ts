@@ -11,5 +11,11 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
   }
+  title = 'admin-panel-layout';
+  sideBarOpen = true;
+
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 
 }

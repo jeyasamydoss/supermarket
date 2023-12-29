@@ -1,0 +1,27 @@
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li a {
+    margin-bottom: 10px;
+    padding: 5px;
+    color: white;
+    font-size: 25px;
+    display: inline;
+    width: fit-content;
+}
+
+ul li a:hover {
+    background-color: rgb(80, 83, 229);
+    border-radius: 10px;
+}
+
+ul li.active a {
+    background-color: #ffcc00; 
+    border-radius: 10px;
+    color: black;
+}
