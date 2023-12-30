@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api:ApiService) { }
 
   ngOnInit() {
+    this.getCategory();
+  }
+  getCategory(){
+    this.api.get('category/getAllCategories').subscribe((res)=>{
+      console.log(res);
+    })
+
   }
 
 }
