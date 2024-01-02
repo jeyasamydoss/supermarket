@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -9,10 +10,15 @@ import { ApiService } from 'src/app/api.service';
 export class ProductComponent implements OnInit {
   public productData:any[]=[];
 
-  constructor(private api:ApiService) { }
+  id:any;
+
+  constructor(private api:ApiService,private routes:ActivatedRoute) {
+this.id  = this.routes.snapshot.queryParams['id'];
+   }
 
   ngOnInit() {
     this.getAllProduct();
+    console.log(this.id)
 
   }
 
@@ -20,7 +26,7 @@ export class ProductComponent implements OnInit {
   getAllProduct(){
 
     this.api.get("product/getProductAll").subscribe((res)=>{
-      console.log("get Product ALL",res);
+      // console.log("get Product ALL",res);
       this.productData=res;
     })
   }

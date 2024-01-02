@@ -4,12 +4,17 @@
   <div class="container">
   <div class="row">
     <div *ngFor="let data of productData" class="col-sm-4">
-      <div class="card" >
-        <img [src]="getImageUrl(data.imageGalleries[0].name)" class="card-img-top img-fluid h-100 d-block" alt="veg">
+      <div class="card w-100 h-100" >
+        <img [src]="getImageUrl(data.imageGalleries[0].name)" class="card-img-top object-fit-scale h-50 d-block" alt="veg">
         <div class="card-body">
           <h5 class="card-title">Product Name : {{data.productName}}</h5>
           <p class="card-text">Price: {{data.price}}</p>
+          <p class="card-text">Weight: {{data.weight}}</p>
+          <p class="card-text">GST: {{data.gst}}</p>
+          <p class="card-text">Total Price: {{data.totalPrice}}</p>
           <a href="#" class="btn btn-danger">Add Cart</a>
+          <a href="#" class="btn btn-success ms-3">Buy Product</a>
+
         </div>
       </div>
       </div>

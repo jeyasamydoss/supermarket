@@ -10,20 +10,23 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
-        
-        <li class="nav-item dropdown">
+        <li>
+          <a class="nav-link active" aria-current="page" href="/user/product">Product</a>
+        </li>
+         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Category
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Vegetables</a></li>
-            <li><a class="dropdown-item" href="#">Fruits</a></li>
-            <li><a class="dropdown-item" href="#">Grossary</a></li>
+            <li *ngFor="let data of categoryList"><a class="dropdown-item" href="/user/product/?id={{ data.id}}">{{data.name}}</a></li>
           </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Login</a>
-        </li>      
+        </li>   
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+        </li>   
     </ul>
     </div>
   </div>

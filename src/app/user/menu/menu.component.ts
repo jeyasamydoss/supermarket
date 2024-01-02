@@ -10,12 +10,14 @@ export class MenuComponent implements OnInit {
 
   constructor(private api:ApiService) { }
 
+  public categoryList:any[]=[];
   ngOnInit() {
     this.getCategory();
   }
   getCategory(){
     this.api.get('category/getAllCategories').subscribe((res)=>{
       console.log(res);
+      this.categoryList = res;
     })
 
   }
