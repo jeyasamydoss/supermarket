@@ -15,4 +15,13 @@ public get(path:any):Observable<any>{
   return this.http.get<any>(this.baseUrl+path);
 }
 
+public post(path:any,data:any):Observable<any>{
+  return this.http.post<any>(this.baseUrl+path,data);
+}
+
+public put(path:any,data:any):Observable<any>{
+  return this.http.put<any>(this.baseUrl+path,data);
+}
+
+
 }
