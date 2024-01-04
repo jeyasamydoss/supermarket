@@ -1,0 +1,29 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Edit Category</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="page__content-data position-absolute text-center">
+      <form [formGroup]="oderForm" (submit)="add()">
+        
+   
+  
+        <div class="row mb-2">
+          <label for="name" class="col-sm-2 col-form-label ">Name</label>
+          <div class="col-sm-10 me-2">
+            <input type="text" class="form-control" id="name" name="name" formControlName="name">
+          <span style="color: red;" *ngIf="name?.invalid && name?.touched">
+            <span style="color: red; font-size: 20px;" *ngIf="name?.errors?.['required']">
+             Name Must required
+            </span>
+
+          </span>
+          </div>
+        </div>
+    
+        
+        
+        <button type="submit" class="btn btn-primary me-3">Submit</button>
+        <button type="button" class="btn btn-danger me-3" (click)="goback()">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>
