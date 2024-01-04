@@ -6,8 +6,12 @@ mat-toolbar {
   
   ul {
       list-style: none;
+      display: flex;
   }
-  button {
+  ul li{
+    margin: 10px;
+  }
+  .menu-btn {
     outline: none;
     border: 0;
     background: transparent;
