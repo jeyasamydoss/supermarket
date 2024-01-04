@@ -35,6 +35,7 @@ post(){
   this.service.post("category",this.oderForm.value).subscribe((res)=>{
     console.log("data Posted",res);
     this.data=res;
+    this.goback();
     
   });
 
