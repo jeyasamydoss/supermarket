@@ -7,16 +7,22 @@ import { MatIconModule } from '@angular/material/icon';
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProductComponent } from './product/product.component';
-
+import { ContactusComponent } from './contactus/contactus.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
     UserRoutingModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    MatInputModule,
+    MatFormFieldModule
 ],
 
-  declarations: [UserComponent,UserHeaderComponent,MenuComponent,ProductComponent],
+  declarations: [UserComponent,UserHeaderComponent,MenuComponent,ProductComponent,ContactusComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UserModule { }
