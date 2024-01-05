@@ -1,3 +1,61 @@
+.content {
+    padding: 7rem 0;
+    z-index: -1;
+    position: absolute;
+    height: 50vh;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #8bbabb;
 
-  
-  
+}
+
+.form-control {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 0;
+    background: none;
+
+}
+
+.contact-wrap {
+    -webkit-box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.contact-wrap .col-form-label {
+    font-size: 14px;
+    color: #b3b3b3;
+    margin: 0 0 10px 0;
+    display: inline-block;
+    padding: 0;
+}
+
+.btn {
+    border: none;
+    border-radius: 0;
+    font-size: 12px;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+    background: #35477d;
+    color: #fff;
+    height: 45px;
+}
+
+.contact-wrap .contact-info {
+    background: #35477d;
+    color: white;
+
+}
+
+.list-unstyled {
+    list-style: none;
+}
+
+.list-unstyled li {
+    margin: 10px;
+}
