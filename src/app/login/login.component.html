@@ -5,14 +5,13 @@
         <h3 class="text-center">
           Login to Users
         </h3>
-        <form action="#">
           <div>
             <label class="form-label" for="username">Username</label>
-            <input type="text" id="username" class="form-control" placeholder="sivadinesh.rs@gmailcom">
+            <input type="text" id="username" class="form-control" [(ngModel)]="userName" placeholder="Enter Email">
           </div>
           <div class="form-group mb-3">
             <label for="password">Password</label>
-            <input type="text" id="password" class="form-control" placeholder="your password">
+            <input type="password" id="password" class="form-control" [(ngModel)]="password" placeholder="Enter password">
           </div>
           <div class="d-flex  alignment-item-center">
             <label class="control control--checkbox mb-0">
@@ -25,13 +24,9 @@
             <a class="forgot-pass" href="#">Forgot Password</a>
           </span>
 
-          <input class="btn btn-primary btn-login" type="Submit" value="Log In">
+          <input class="btn btn-primary btn-login" (click)="login()" value="Log In">
 
-        </form>
-        <div class="d-flex my-5 d-grid gap-2 justify-content-center">
-          <button class="btn btn-primary btn-lg" (click)="user()">USER PAGE</button>
-          <button class="btn btn-success btn-lg" (click)="admin()">ADMIN PAGE</button>
-        </div>
+       
       </div>
 
     </div>
