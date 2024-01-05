@@ -26,7 +26,6 @@ this.id  = this.routes.snapshot.queryParams['id'];
   getAllProduct(){
 
     this.api.get("product/getProductAll").subscribe((res)=>{
-      // console.log("get Product ALL",res);
       this.productData=res;
     })
   }

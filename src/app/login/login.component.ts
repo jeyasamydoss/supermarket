@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-login',
@@ -8,14 +9,29 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  public userName:any;
+  public password:any;
+  constructor(private route:Router,private api:ApiService) { }
 
   ngOnInit() {
   }
-  user(){
-    this.route.navigate(['/user']);
+  login(){
+    let payload:any={};
+    payload['userName']=this.userName;
+    payload['password']=this.password;
+    this.api.post('user/login',payload).subscribe((res)=>{
+      if(res.role === "ROLE_USER"){
+        this.route.navigate(['/user']);
+      }else if(res.role === "ROLE_ADMIN"){
+        this.route.navigate(['/admin'])
+      }
+      else{
+        alert("User Not Found")
+      }
+    })
+
+
   }
-  admin() {
-    this.route.navigate(['/admin'])
-  }
+
+
 }
