@@ -1,7 +1,5 @@
 .content {
     padding: 7rem 0;
-    z-index: -1;
-    position: absolute;
     height: 50vh;
     content: "";
     top: 0;

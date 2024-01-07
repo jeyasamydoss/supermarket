@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
   <div class="container">
     <a class="navbar-brand" href="#"><div class="text-primary fw-bold fs-1"><mat-icon class=" ">shopping_cart</mat-icon>SHOP
     </div></a>
@@ -6,24 +6,34 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="d-lg-flex justify-content-lg-end collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="menu d-lg-flex d-md-flex">
+      <ul class="menu d-lg-flex align-items-center d-md-flex">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li>
-          <a class="nav-link active" aria-current="page" href="/user/product">Product</a>
+          <a class="nav-link active" aria-current="page" href="/product">Product</a>
         </li>
          <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Category
           </a>
           <ul class="dropdown-menu">
-            <li *ngFor="let data of categoryList"><a class="dropdown-item" href="/user/product/?id={{ data.id}}">{{data.name}}</a></li>
+            <li *ngFor="let data of categoryList"><a class="dropdown-item" href="/product/?id={{ data.id}}">{{data.name}}</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/user/contactus">Contact Us</a>
-        </li>   
+          <a class="nav-link active" aria-current="page" href="/contactus">Contact Us</a>
+        </li>
+        <li *ngIf="!userName" class="nav-item"> 
+          <button class="btn btn-success" (click)="login()">
+           Login
+          </button>
+         </li> 
+        <li *ngIf="userName" class="nav-item d-lg-flex align-items-center "> <span class="fw-bold fs-3 me-2`">{{userName}}</span>
+         <button class="btn btn-danger" (click)="logout()">
+          Logout
+         </button>
+        </li> 
     </ul>
     </div>
   </div>

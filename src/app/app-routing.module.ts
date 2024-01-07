@@ -4,11 +4,11 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path:'login',
     component:LoginComponent
   },
   {
-    path: 'user',
+    path: '',
     loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   },
   {

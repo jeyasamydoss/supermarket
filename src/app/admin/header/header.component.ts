@@ -11,14 +11,21 @@ export class HeaderComponent implements OnInit {
     @Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
 
   constructor(private router: Router) {}
-
-  ngOnInit(): void {}
+  userName:any;
+  ngOnInit(): void {
+    const storedUser = localStorage.getItem('user');
+    if(storedUser){
+      const user = JSON.parse(storedUser);
+      this.userName = user.userName;
+    
+  }
+}
 
   toggleSidebar() {
     this.toggleSidebarForMe.emit();
   }
 logout(){
+  localStorage.removeItem('user');
   this.router.navigate([''])
-
 }
 }

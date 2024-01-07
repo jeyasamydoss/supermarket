@@ -9,15 +9,11 @@ const routes: Routes = [
   {
     path: '',
     component: UserComponent,
+    children: [
+      { path: 'product', component: ProductComponent },
+      { path: 'contactus', component: ContactusComponent },
+    ]
 
-  },
-  {
-    path: 'product',
-component: ProductComponent
-  },
-  {
-    path: 'contactus',
-component: ContactusComponent
   }
 ];
 

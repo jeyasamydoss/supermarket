@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -8,10 +9,18 @@ import { ApiService } from 'src/app/api.service';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private api:ApiService) { }
-
+  constructor(private api:ApiService,private router:Router) { }
+  userName:any;
   public categoryList:any[]=[];
   ngOnInit() {
+    const storedUser = localStorage.getItem('user');
+    if(storedUser){
+      const user = JSON.parse(storedUser);
+      this.userName = user.userName;
+
+
+    }
+
     this.getCategory();
   }
   getCategory(){
@@ -21,5 +30,11 @@ export class MenuComponent implements OnInit {
     })
 
   }
-
+  logout(){
+    localStorage.removeItem('user');
+    this.userName = null;
+  }
+  login(){
+    this.router.navigate(['login']);
+  }
 }
