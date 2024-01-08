@@ -4,6 +4,7 @@ import { UserComponent } from './user.component';
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { ProductComponent } from './product/product.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,8 @@ const routes: Routes = [
     children: [
       { path: 'product', component: ProductComponent },
       { path: 'contactus', component: ContactusComponent },
+      { path: 'aboutus', component: AboutusComponent },
+
     ]
 
   }
