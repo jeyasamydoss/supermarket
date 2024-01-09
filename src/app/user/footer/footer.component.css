@@ -1,0 +1,18 @@
+.footer-main{
+    background-color: rgb(238, 238, 238);
+}
+ul{
+    list-style: none;
+    display: flex;
+}
+ul li{
+    margin-left: 30px;
+    font-size: 30px;
+}
+ul li a{
+    color: black;
+
+}
+ul li a :hover{
+   color: #608729 ;
+}

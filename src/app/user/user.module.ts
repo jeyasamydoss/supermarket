@@ -12,6 +12,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -23,7 +24,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     MatFormFieldModule
 ],
 
-  declarations: [UserComponent,UserHeaderComponent,MenuComponent,ProductComponent,ContactusComponent,AboutusComponent],
+  declarations: [UserComponent,UserHeaderComponent,MenuComponent,
+    ProductComponent,ContactusComponent,AboutusComponent,FooterComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UserModule { }
