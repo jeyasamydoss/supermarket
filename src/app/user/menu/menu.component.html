@@ -1,12 +1,11 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
   <div class="container">
-    <a class="navbar-brand" href="#"><div class="text-primary fw-bold fs-1"><mat-icon class=" ">shopping_cart</mat-icon>SHOP
-    </div></a>
+    <a class="navbar-brand title-name w-25" href="">OASYS-MARKET</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="d-lg-flex justify-content-lg-end collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="menu d-lg-flex align-items-center d-md-flex">
+    <div class="d-lg-flex justify-content-lg-between  collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="menu d-lg-flex flex-lg-row align-items-center align-items-md-start d-md-flex flex-md-column">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/home">Home</a>
         </li>
@@ -22,25 +21,24 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/contactus">Contact Us</a>
+          <a class="nav-link active" aria-current="page" href="/aboutus">ABOUT</a>
         </li>
-        <li *ngIf="!userName" class="nav-item"> 
-          <button class="btn btn-success" (click)="login()">
-           Login
-          </button>
-         </li> 
-        <li *ngIf="userName" class="nav-item d-lg-flex align-items-center "> <span class="fw-bold fs-3 me-2`">{{userName}}</span>
-         <button class="btn btn-danger" (click)="logout()">
-          Logout
-         </button>
-        </li> 
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/contactus">Contact</a>
+        </li>
     </ul>
+    <div *ngIf="!userName">
+      <button class="btn btn-success" (click)="login()">
+        Login
+       </button>
     </div>
+    <div *ngIf="userName" class=" d-lg-flex align-items-center "> <span class="fw-bold fs-4 me-2 title-name">Welcome {{userName}}</span>
+      <i (click)="logout()" class="fa-solid fa-right-from-bracket logout-btn text-danger border border-danger p-2 ms-3 rounded "></i>
+    </div>
+    </div>
+   
   </div>
 </nav>
-
-
  
 
 
- 

@@ -1,0 +1,31 @@
+element.style {
+    background-image: url(/assets/aboutus.jpg);
+}
+.hero-wrap, .img, .blog-img, .user-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+.hero-wrap.hero-bread {
+    padding: 10em 0;
+}
+
+.hero-wrap {
+    width: 100%;
+    position: relative;
+}
+
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background: #fff;
+    font-size: 15px;
+    line-height: 1.8;
+    font-weight: 400;
+    color: gray;
+    margin: 0;
+}
+
+ 
+  

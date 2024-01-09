@@ -1,40 +1,69 @@
-<div class="container-fluid m-0 p">
-  <div class="row  ">
-    <div class="col-lg-6 col-sm-6 d-flex justify-content-center align-items-center">
-      <div class="w-50">
-        <h3 class="text-center">
-          Login to Users
-        </h3>
-          <div>
-            <label class="form-label" for="username">Username</label>
-            <input type="text" id="username" class="form-control" [(ngModel)]="userName" placeholder="Enter Email">
+<div class="image">
+  <div class="wrapper">
+    <span class="icon-close" (click)="goHome()"><i class="fa-solid fa-xmark"></i></span>
+    <div>
+      <div *ngIf="title==='login'">
+        <div class="form-box login">
+          <h2>User Login</h2>
+          <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-user"></i></span>
+            <input type="Username" [(ngModel)]="userName" required>
+            <label> Username</label>
           </div>
-          <div class="form-group mb-3">
-            <label for="password">Password</label>
-            <input type="password" id="password" class="form-control" [(ngModel)]="password" placeholder="Enter password">
+
+          <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-lock"></i></span>
+            <input type="Password" [(ngModel)]="password" required>
+            <label> Password</label>
           </div>
-          <div class="d-flex  alignment-item-center">
-            <label class="control control--checkbox mb-0">
-              <input type="checkbox" checked="checked">
-              <span class="caption"> Remember me</span>
-            </label>
+          <div class="remember-forgot">
+            <label><input type="checkbox">Remember me </label>
+            <a href="#"> Forgot Password?</a>
+          </div>
+          <div class="text-center">
+            <button type="button" (click)="login()" class="btn">Login</button>
 
           </div>
-          <span class="ml-auto">
-            <a class="forgot-pass" href="#">Forgot Password</a>
-          </span>
-
-          <input class="btn btn-primary btn-login" (click)="login()" value="Log In">
-
-       
+          <div class="login-register">
+            <p>Don't have an account? <a class="register-link" (click)="getRegister()">Register</a></p>
+          </div>
+        </div>
       </div>
+      <div *ngIf="title==='register'">
+        <div class="form-box register mt-2">
+          <h2>Registeration</h2>
+          <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-user"></i></span>
+            <input type="Username" [(ngModel)]="userName" required>
+            <label> User Name</label>
+          </div>
 
-    </div>
-    <div class="col-lg-6 main">
-      <img src="assets/supermarket image.webp" class="w-100 h-100" alt="">
-    </div>
+          <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-lock"></i></span>
+            <input type="Password" [(ngModel)]="password" required>
+            <label>Password</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+            <input type="Email" [(ngModel)]="email" required>
+            <label>Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-mobile"></i></span>
+            <input type="tel" [(ngModel)]="mobile" required>
+            <label>Mobile</label>
+          </div>
+          <div class="remember-forgot">
+            <label><input type="checkbox">I agree to the terms & conditions</label>
 
+          </div>
+          <button type="submit" class="btnr" (click)="register()">Register</button>
+
+          <div class="login-register">
+            <p>Already have an account? <a (click)="getLogin()" class="login">Login</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-
 </div>
