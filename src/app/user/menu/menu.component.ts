@@ -30,6 +30,9 @@ export class MenuComponent implements OnInit {
     })
 
   }
+  gotohome() {
+    this.router.navigate(['home']);
+  }
   logout(){
     localStorage.removeItem('user');
     this.userName = null;
