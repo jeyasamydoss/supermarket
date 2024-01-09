@@ -26,6 +26,6 @@ body {
     color: gray;
     margin: 0;
 }
-
- 
-  
+.heading-section {
+    position: relative;
+}
