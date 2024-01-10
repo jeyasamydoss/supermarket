@@ -11,21 +11,34 @@ export class ProductComponent implements OnInit {
   public productData:any[]=[];
 
   id:any;
-
+categoryTitle:any;
   constructor(private api:ApiService,private routes:ActivatedRoute) {
 this.id  = this.routes.snapshot.queryParams['id'];
    }
 
   ngOnInit() {
-    this.getAllProduct();
-    console.log(this.id)
-
+    if(this.id){
+    this.getProductByCategoryId()
+    }else{
+      this.getAllProduct();
+    }
   }
 
 
   getAllProduct(){
+    this.api.get('product/getProductAll').subscribe((res)=>{
+      this.productData=res;
+    })
+  }
+  getCategoryId(){
+    this.api.get("category/getByCategoryId/"+this.id).subscribe((res)=>{
+      this.categoryTitle=res.name;
+    })
+  }
 
-    this.api.get("product/getProductAll").subscribe((res)=>{
+  getProductByCategoryId(){
+    this.getCategoryId();
+    this.api.get("product/getByCategoryId/"+this.id).subscribe((res)=>{
       this.productData=res;
     })
   }

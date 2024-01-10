@@ -1,23 +1,28 @@
-<div class="container h1 text-center text-primary">
-  VEGITABLE SHOPING
-</div>
-  <div class="container">
-  <div class="row">
-    <div *ngFor="let data of productData" class="col-sm-4">
-      <div class="card w-100 h-100" >
-        <img [src]="getImageUrl(data.imageGalleries[0].name)" class="card-img-top object-fit-scale h-50 d-block" alt="veg">
-        <div class="card-body">
-          <h5 class="card-title">Product Name : {{data.productName}}</h5>
-          <p class="card-text">Price: {{data.price}}</p>
-          <p class="card-text">Weight: {{data.weight}}</p>
-          <p class="card-text">GST: {{data.gst}}</p>
-          <p class="card-text">Total Price: {{data.totalPrice}}</p>
-          <a href="#" class="btn btn-danger">Add Cart</a>
-          <a href="#" class="btn btn-success ms-3">Buy Product</a>
-
+<div class="container-fluid bg ">
+  <div class="container h1 text-center text-uppercase fw-bold text-primary">
+    {{categoryTitle}} SHOPPING
+  </div>
+  <div class="container h-100">
+    <div class="row">
+      <div *ngFor="let data of productData" class="col-sm-3 p-3">
+        <div class="card-item ">
+          <img [src]="getImageUrl(data.imageGalleries[0].name)" height="200px"
+            class="card-img-top object-fit-scale rounded-cricle  d-block" alt="veg">
+          <div class="card-body mt-3">
+            <h5 class="card-title text-center fw-600">{{data.productName}}</h5>
+            <p class="card-text text-center price mt-2"><i class="fa-solid fa-indian-rupee-sign"></i><span
+                class="ms-1">{{data.price}}</span></p>
+            <div class="text-center item">
+              <a href="#" class=" add-cart-btn "><i class="fa-solid fa-cart-shopping"></i></a>
+              <a href="#" class=" ms-3 buy-product-btn"><i class="fa-solid fa-bars"></i></a>
+            </div>
+          </div>
         </div>
       </div>
-      </div>
+    </div>
+    <div class="text-center d-flex align-items-center justify-content-center h-75  " *ngIf="productData.length === 0 ">
+      <h1 class="border p-3 text-capitalize fw-100 rounded">Coming soon product !</h1>
+    </div>
   </div>
-</div>  
 
+</div>
