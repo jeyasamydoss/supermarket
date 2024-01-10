@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
+import { SnackbarServiceService } from '../common/snackbarService.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   public email: any;
   public mobile: any;
 
-  constructor(private router: Router, private api: ApiService) { }
+  constructor(private router: Router, private api: ApiService,private snackBar:SnackbarServiceService) { }
 
   ngOnInit() {
     const storedUser = localStorage.getItem('user');
@@ -64,6 +65,8 @@ export class LoginComponent implements OnInit {
   }
   goHome() {
     this.router.navigate(['']);
+    this.snackBar.showSuccessMessage("Home page ");
+
   }
   getLogin() {
     this.title = 'login';
