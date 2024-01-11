@@ -26,14 +26,20 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/contactus">Contact</a>
         </li>
+       
     </ul>
-    <div class="text-center" *ngIf="!userName">
-      <button class="btn btn-success" (click)="login()">
+    <div>
+     
+    </div>
+    <div class="text-center  d-lg-flex align-items-center " >
+      <a class=" me-3" aria-current="page" href="/addcart"><mat-icon>add_shopping_cart</mat-icon>
+      </a>
+      <button *ngIf="!userName" class="btn btn-success" (click)="login()">
         Login
        </button>
-    </div>
-    <div *ngIf="userName" class=" d-lg-flex align-items-center "> <span class="fw-bold fs-4 me-2 title-name">Welcome {{userName}}</span>
-      <i (click)="logout()" class="fa-solid fa-right-from-bracket logout-btn text-danger border border-danger p-2 ms-3 rounded "></i>
+       <div *ngIf="userName" class=" d-lg-flex align-items-center "> <span class="fw-bold fs-4 me-2 title-name">Welcome {{userName}}</span>
+        <i (click)="logout()" class="fa-solid fa-right-from-bracket logout-btn text-danger border border-danger p-2 ms-3 rounded "></i>
+      </div>
     </div>
     </div>
    

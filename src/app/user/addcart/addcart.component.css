@@ -1,0 +1,144 @@
+/* .container-fluid {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  
+  .bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+  }
+  
+  .top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+  }
+  
+  .top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+  }
+  
+  .bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+  }
+  
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .table-cart {
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid #e1e1e1;
+}
+.table-custom {
+    width: 100%;
+    max-width: 100%;
+    background: #ffffff;
+    border-collapse: collapse;
+}
+  .Proceed-btn{
+    background-color: #82ae46 ;
+    color: white;
+    width: 200px ;
+    height: 60px;
+    font-size: 15px;
+    outline: none;
+    border: none;
+} */
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.section-xl {
+    padding: 100px 0;
+}
+
+.table-cart {
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid #e1e1e1;
+}
+
+.table-custom {
+    width: 100%;
+    max-width: 100%;
+    background: #ffffff;
+    border-collapse: collapse;
+}
+
+.table-custom thead th,
+.table-custom tbody td {
+    border: 1px solid #e1e1e1;
+
+    padding: 10px;
+}
+
+
+.group-justify {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.group-xl {
+    margin-bottom: -30px;
+    margin-left: -40px;
+}
+
+.group-xl > * {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 30px;
+    margin-left: 40px;
+}
+
+.button-primary {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.total-section {
+    text-align: right;
+    flex-grow: 1; /* Allow the total to take up available space */
+}
+
+.total-section .heading-5
+ {
+    margin: 0; /* Remove default margin */
+}
+.total-section .heading-5 {
+    margin-right: 10px; /* Adjust as needed */
+}
