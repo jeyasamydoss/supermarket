@@ -14,6 +14,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { FooterComponent } from './footer/footer.component';
 import { AddcartComponent } from './addcart/addcart.component';
+import { BlogComponent } from './blog/blog.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -26,7 +27,7 @@ import { AddcartComponent } from './addcart/addcart.component';
 ],
 
   declarations: [UserComponent,UserHeaderComponent,MenuComponent,
-    ProductComponent,ContactusComponent,AboutusComponent,FooterComponent,AddcartComponent],
+    ProductComponent,ContactusComponent,AboutusComponent,FooterComponent,BlogComponent,AddcartComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UserModule { }
