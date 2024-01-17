@@ -1,75 +1,74 @@
 <div class="hero-wrap hero-bread" style="background-image: url('/assets/aboutus.jpg');">
   <div class="container">
-    <div class="row no-gutters slider-text align-items-center justify-content-center">
-      <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
-        <p class="breadcrumbs mt-5" style="color: white;">
-          <span class="mr-2 text-center"><a href="index.html" style="color: white; text-decoration: none;">Home</a></span>
-          <span style="color: white;">&nbsp;&nbsp;&nbsp;</span> 
-          <span>About us</span>
-        </p>
-        <h1 class="mb-0 bread" style="color: white;">About us</h1>
+      <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+              <p class="breadcrumbs mt-5" style="color: white;">
+                  <span class="mr-2 text-center"><a href="index.html" style="color: white; text-decoration: none;">Home</a></span>
+                  <span style="color: white;">&nbsp;&nbsp;&nbsp;</span>
+                  <span>About us</span>
+              </p>
+              <h1 class="mb-0 bread" style="color: white;">About us</h1>
+          </div>
       </div>
-    </div>
   </div>
 </div>
+
 <section class="ftco-section contact-section bg-light">
   <div class="container">
-    <div class="row d-flex mb-5 contact-info  container justify-content">
-      <div class="w-100"></div>
-      <div class="col-md-3 d-flex p-5">
-        <div class="info bg-white p-4">
-          <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
-        </div>
-      </div>
-     
-      <div class="col-md-3 d-flex p-5">
-        <div class="info bg-white p-4">
-          <p><span>Phone: </span> <a href="tel://1234567920"  style="text-decoration: none; color: grey;">+ 1235 2355 98</a></p>
-        </div>
-      </div>
-      <div class="col-md-3 d-flex p-5" >
-        <div class="info bg-white p-4"  >
-          <p><span>Email: </span> <a href="mailto:info@yoursite.com" style="text-decoration: none; color: grey; font-size: 15px;">info@yoursite.com</a></p>
-        </div>
-      </div>
-      <div class="col-md-3 d-flex p-5">
-        <div class="info bg-white p-4">
-          <p><span>Website </span> <a href="#"  style="text-decoration: none;color: grey;">yoursite.com</a></p>
-        </div>
+      <div class="row d-flex mb-5 contact-info container justify-content">
+          <div class="w-100"></div>
+          <div class="col-md-3 d-flex p-5">
+              <div class="info bg-white p-4">
+                  <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+              </div>
+          </div>
+
+          <div class="col-md-3 d-flex p-5">
+              <div class="info bg-white p-4">
+                  <p><span>Phone: </span> <a href="tel://1234567920" style="text-decoration: none; color: grey;">+ 1235 2355 98</a></p>
+              </div>
+          </div>
+          <div class="col-md-3 d-flex p-5" >
+              <div class="info bg-white p-4"  >
+                  <p><span>Email: </span> <a href="mailto:info@yoursite.com" style="text-decoration: none; color: grey; font-size: 15px;">info@yoursite.com</a></p>
+              </div>
+          </div>
+          <div class="col-md-3 d-flex p-5">
+              <div class="info bg-white p-4">
+                  <p><span>Website </span> <a href="#" style="text-decoration: none;color: grey;">yoursite.com</a></p>
+              </div>
+          </div>
       </div>
 
-  </div>
-    <div class="row block-9">
-      <div class="col-md-6 order-md-last d-flex">
-        <form action="#" class="bg-white p-5 contact-form w-100 h-100">
-          <div class="form-group">
-            <input type="text" class="form-control h-100" placeholder="Your Name">
+      <div class="row block-9">
+          <div class="col-md-6 order-md-last d-flex">
+              <form  [formGroup]="contact" method="post" class="bg-white p-5 contact-form w-100 h-100" (submit)="gotoadmin()">
+                  <div class="form-group">
+                      <input type="text" class="form-control h-100" placeholder="Your Name" name="name" formControlName="name">
+                  </div>
+                  <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Your Email" name="email" formControlName="email">
+                  </div>
+                  <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Subject" name="subject" formControlName="subject">
+                  </div>
+                  <div class="form-group">
+                      <textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message" formControlName="message" ></textarea>
+                  </div>
+                  <div class="form-group">
+                      <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                  </div>
+              </form>
           </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Your Email">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Subject">
-          </div>
-          <div class="form-group">
-            <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-          </div>
-          <div class="form-group">
-            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-          </div>
-        </form>
-      
-      </div>
 
-      <div class="col-md-6 d-flex">
-        <div id="map" class="bg-white" style="position: relative;">
-         <img src="/assets/vegetable2.jpg" alt="veg" height="100%" width="100%">
-  </div>
+          <div class="col-md-6 d-flex">
+              <div id="map" class="bg-white" style="position: relative;">
+                  <img src="/assets/vegetable2.jpg" alt="veg" height="100%" width="100%">
+              </div>
+          </div>
       </div>
-    </div>
   </div>
 </section>
-
 
 <!-- <div class="container-fluid content">
   <div class="container">
