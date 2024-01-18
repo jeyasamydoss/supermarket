@@ -13,6 +13,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CheckoutComponent } from './checkout/checkout.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -21,11 +23,14 @@ import { FooterComponent } from './footer/footer.component';
     MatIconModule,
     MatSelectModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule
+
 ],
 
   declarations: [UserComponent,UserHeaderComponent,MenuComponent,
-    ProductComponent,ContactusComponent,AboutusComponent,FooterComponent],
+    ProductComponent,ContactusComponent,AboutusComponent,FooterComponent,CheckoutComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UserModule { }
