@@ -8,9 +8,6 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-
-
 
 @NgModule({
   declarations: [			
@@ -24,9 +21,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     RouterModule,
     HttpClientModule,
-    FormsModule,
-    MatSnackBarModule,
-    
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

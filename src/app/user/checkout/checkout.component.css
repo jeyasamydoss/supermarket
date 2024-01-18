@@ -1,0 +1,58 @@
+h1{
+    position:absolute;
+    top: 400px;
+    left: 50%;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.style{
+    font-weight: 500px;
+    font-size: 36px;
+}
+  .user-box {
+    position: relative;
+  }
+  
+  .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color:black;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    background: transparent;
+  }
+  
+   .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color:black;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+   .user-box input:focus ~ label,
+  .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color:black;
+    font-size: 12px;
+  }
+  .formvalidation{
+    position:absolute;
+    right: 0px;
+    bottom: 35px;
+    z-index: 11;
+    margin-top: 0px;
+    font-size: 9px;
+    font-weight: 400;
+letter-spacing: 0px;
+
+  }
+  
+   

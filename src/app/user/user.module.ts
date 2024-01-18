@@ -13,6 +13,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CheckoutComponent } from './checkout/checkout.component';
 import { AddcartComponent } from './addcart/addcart.component';
 import { BlogComponent } from './blog/blog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,7 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 ],
 
   declarations: [UserComponent,UserHeaderComponent,MenuComponent,
-    ProductComponent,ContactusComponent,AboutusComponent,FooterComponent,BlogComponent,AddcartComponent],
+    ProductComponent,ContactusComponent,AboutusComponent,FooterComponent,BlogComponent,AddcartComponent,CheckoutComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UserModule { }
