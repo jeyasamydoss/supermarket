@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
+import { SnackbarServiceService } from '../common/snackbarService.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   public email: any;
   public mobile: any;
 
-  constructor(private router: Router, private api: ApiService) { }
+  constructor(private router: Router, private api: ApiService,private snackBar:SnackbarServiceService) { }
 
   ngOnInit() {
     const storedUser = localStorage.getItem('user');
@@ -31,24 +32,46 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    let payload: any = {};
-    payload['userName'] = this.userName;
-    payload['password'] = this.password;
-
-    this.api.post('user/login', payload).subscribe((res) => {
-      if (res.role === 'ROLE_USER' || res.role === 'ROLE_ADMIN') {
-        localStorage.setItem('user', JSON.stringify(res));
-
-        if (res.role === 'ROLE_USER') {
-          this.router.navigate(['']);
-        } else if (res.role === 'ROLE_ADMIN') {
-          this.router.navigate(['/admin']);
+    if (!this.userName) {
+      this.snackBar.showErrorMessage("User Name Required");
+      return; 
+    }
+  
+    if (!this.password) {
+      this.snackBar.showErrorMessage("Password Required");
+      return; 
+    }
+  
+    let payload: any = {
+      userName: this.userName,
+      password: this.password
+    };
+  
+    this.api.post('user/login', payload).subscribe(
+      (res) => {
+        if (res.role === 'ROLE_USER' || res.role === 'ROLE_ADMIN') {
+          localStorage.setItem('user', JSON.stringify(res));
+  
+          if (res.role === 'ROLE_USER') {
+            this.snackBar.showSuccessMessage('Welcome to ' + res.userName);
+            this.router.navigate(['']);
+          } else if (res.role === 'ROLE_ADMIN') {
+            this.snackBar.showSuccessMessage('Welcome to Admin ' + res.userName);
+            this.router.navigate(['/admin']);
+          }
         }
-      } else {
-        alert('User Not Found');
+      },
+      (error) => {
+        if (error.status === 401) {
+          this.snackBar.showErrorMessage("User not found or incorrect password");
+        } else {
+          alert('An unexpected error occurred');
+        }
       }
-    });
+    );
   }
+  
+  
   register() {
     let payload: any = {};
     payload['userName'] = this.userName;
@@ -59,6 +82,9 @@ export class LoginComponent implements OnInit {
     this.api.post('user', payload).subscribe((res) => {
       this.getLogin();
 
+    },
+    (error) => {
+        this.snackBar.showSuccessMessage(error);
     });
 
   }

@@ -1,5 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
-body{
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+body {
     font-family: "Poppins", Arial, sans-serif;
+}
+
+.red-snackbar {
+    --mdc-snackbar-container-color: white;
+    --mat-snack-bar-button-color: black;
+    --mdc-snackbar-supporting-text-color: red;
+    padding-top: 100px;
+}
+
+
+.green-snackbar {
+    --mdc-snackbar-container-color: white;
+    --mat-snack-bar-button-color: black;
+    --mdc-snackbar-supporting-text-color: green;
+    padding-top: 100px;
 }
