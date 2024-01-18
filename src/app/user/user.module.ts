@@ -32,7 +32,7 @@ import { BlogComponent } from './blog/blog.component';
 ],
 
   declarations: [UserComponent,UserHeaderComponent,MenuComponent,
-    ProductComponent,ContactusComponent,AboutusComponent,FooterComponent,BlogComponent,AddcartComponent],
+    ProductComponent,ContactusComponent,AboutusComponent,FooterComponent,BlogComponent,AddcartComponent,CheckoutComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UserModule { }

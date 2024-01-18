@@ -22,9 +22,9 @@ const routes: Routes = [
       { path: 'contactus', component: ContactusComponent },
       {path:'',component:HomeComponent},
       { path: 'aboutus', component: AboutusComponent },
-      {path:'checkout',component:CheckoutComponent}
       { path: 'addcart', component: AddcartComponent },
       { path: 'blog', component: BlogComponent },
+      {path:'checkout',component:CheckoutComponent}
 
 
     ]
