@@ -30,6 +30,9 @@ public delete(path:any):Observable<any>{
   return this.http.delete<any>(this.baseUrl+path);
 }
 
+public postWithBody(path: any, data: any): Observable<any> {
+  return this.http.post<any>(this.baseUrl + path, data);
+}
 
 
 }

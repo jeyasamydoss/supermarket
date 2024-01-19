@@ -13,8 +13,8 @@
             <p class="card-text text-center price mt-2"><i class="fa-solid fa-indian-rupee-sign"></i><span
                 class="ms-1">{{data.price}}</span></p>
             <div class="text-center item">
-              <a href="#" class=" add-cart-btn "><i class="fa-solid fa-cart-shopping"></i></a>
-              <a href="#" class=" ms-3 buy-product-btn"><i class="fa-solid fa-bars"></i></a>
+              <!-- <a href="/addcart" class=" add-cart-btn "><i class="fa-solid fa-cart-shopping"></i></a> -->
+              <a (click)="addToCart(data)" class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>              <a href="#" class=" ms-3 buy-product-btn"><i class="fa-solid fa-bars"></i></a>
             </div>
           </div>
         </div>

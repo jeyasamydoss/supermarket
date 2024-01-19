@@ -1,101 +1,49 @@
-<!-- <div class="container-fluid">
-  <img src="/assets/bg-shop.jpg" alt="Snow" style="width:100%;">
-  <div class="centered h1">CART PAGE</div>
-</div> -->
-<!-- <div class="container d-flex justify-content-center mt-5">
-  <table class="table-custom table-cart">
-    <tr>
-      <th>PRODUCT NAME</th>
-      <th>PRICE</th>
-      <th>QUANTITY</th>
-      <th>TOTAL</th>
-    </tr>
-    <tr>
-      <td><img src="/assets/O.jpeg" alt="orange">ORANGES</td>
-      <td>200</td>
-      <td>1kg</td>
-      <td>200</td>
-    </tr>
-    <tr>
-      <td><img src="/assets/A.jpeg" alt="apple">APPLES</td>
-      <td>400</td>
-      <td>2kg</td>
-      <td>400</td>
-    </tr>
-  </table>
-</div>
-<div class="container d-flex justify-content-sm-end">
-<button class="Proceed-btn">PROCEED TO CHECKOUT</button>
-</div> -->
-
 <div class="container-fluid">
-  <img src="/assets/bg-shop.jpg" alt="Snow" style="width:100%;">
-  <div class="centered h1">CART PAGE</div>
+    <img src="/assets/bg-shop.jpg" alt="Snow" style="width:100%;">
+    <div class="centered h1">CART PAGE</div>
 </div>
 
 <section class="section section-xl bg-default">
-  <div class="container">
-      <!-- shopping-cart-->
-      <div class="table-custom-responsive">
-          <table class="table-custom table-cart">
-              <thead>
-                  <tr>
-                      <th>Product name</th>
-                      <th>Price</th>
-                      <th>Quantity</th>
-                      <th>Total</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>
-                          <a class="table-cart-figure" href="single-product.html">
-                              <img src="/assets/O.jpeg" alt="" width="146" height="132">
-                          </a>
-                          <a class="table-cart-link" href="single-product.html" style=" text-decoration: none;color: lightgreen;">Oranges</a>
-                      </td>
-                      <td>$20.00</td>
-                      <td>
-                          <div class="table-cart-stepper">
-                              <div class="stepper">
-                                  <input class="form-input stepper-input" type="number" data-zeros="true" value="1" min="1" max="1000">
-                                  <span class="stepper-arrow up"></span>
-                                  <span class="stepper-arrow down"></span>
-                              </div>
-                          </div>
-                      </td>
-                      <td>$20</td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <a class="table-cart-figure" href="single-product.html">
-                              <img src="/assets/A.jpeg" alt="" width="146" height="132">
-                          </a>
-                          <a class="table-cart-link" href="single-product.html" style=" text-decoration: none; color: lightgreen;">Apples</a>
-                      </td>
-                      <td>$23.00</td>
-                      <td>
-                          <div class="table-cart-stepper">
-                              <div class="stepper">
-                                  <input class="form-input stepper-input" type="number" data-zeros="true" value="1" min="1" max="1000">
-                                  <span class="stepper-arrow up"></span>
-                                  <span class="stepper-arrow down"></span>
-                              </div>
-                          </div>
-                      </td>
-                      <td>$23</td>
-                  </tr>
-              </tbody>
-          </table>
-      </div>
-
-      <div class="group-xl group-justify mt-5">
-        <div class="total-section">
-            <div class="group-md group-middle">
-                <div class="heading-5 fw-medium text-gray-500">Total $43</div>
-            </div>
+    <div class="container">
+        <div class="table-custom-responsive">
+            <table class="table-custom table-cart">
+                <thead>
+                    <tr>
+                        <th>Product name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of cartItems; let i = index">
+                        <td>
+                            <img [src]="getImageUrl(item.image)" alt="" width="146" height="132">
+                            <span>{{ item.productName }}</span>
+                        </td>
+                        <td>{{ item.price | currency }}</td>
+                        <td>
+                            <div class="table-cart-stepper">
+                                <div class="stepper">
+                                    <input class="form-input stepper-input" type="number" data-zeros="true" value="1" min="1" max="1000" (input)="updateQuantity(i, $event)">
+                                    <span class="stepper-arrow up"></span>
+                                    <span class="stepper-arrow down"></span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{ calculateTotal(item) | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <button class="button button-lg button-primary button-zakaria" (click)="gotocheckout()">Proceed to checkout</button>
+
+        <div class="group-xl group-justify mt-5">
+            <div class="total-section">
+                <div class="group-md group-middle">
+                    <div class="heading-5 fw-medium text-gray-500">Total ${{ calculateGrandTotal() | currency }}</div>
+                </div>
+            </div>
+            <button class="button button-lg button-primary button-zakaria" (click)="gotocheckout()">Proceed to checkout</button>
+        </div>
     </div>
-</div>
 </section>

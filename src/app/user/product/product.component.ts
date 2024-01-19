@@ -45,8 +45,28 @@ this.id  = this.routes.snapshot.queryParams['id'];
   getImageUrl(imageName: string): string {
     return `http://localhost:8080/${imageName}`;
   }
+  cartItems: any[] = [];
 
+addToCart(product: any) {
+  const cartItem = {
+    productName: product.productName,
+    price: product.price,
+    quantity: 1,
+    image: product.imageGalleries[0].name
+    
+  };
 
+  this.api.postWithBody('addcart', cartItem).subscribe(
+    (response) => {
+      console.log('Product added to cart:', response);
+      this.cartItems.push(response); // Store the added product locally
+    },
+    (error) => {
+      console.error('Error adding product to cart:', error);
+      // Handle error appropriately
+    }
+  );
+}
 
 
 }
