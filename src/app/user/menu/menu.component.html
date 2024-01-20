@@ -36,20 +36,25 @@
     <div>
      
     </div>
-    <div class="text-center  d-lg-flex align-items-center " >
-      <a class=" me-3" aria-current="page" href="/addcart"><mat-icon>add_shopping_cart</mat-icon>
+    <div class="text-center d-lg-flex align-items-center">
+      <a class="me-3 cart-icon-container" aria-current="page" href="/addcart">
+        <mat-icon>add_shopping_cart</mat-icon>
+        <span *ngIf="cartItemCount > 0" class="cart-notification">{{ cartItemCount }}</span>
       </a>
-      <button *ngIf="!userName" class="btn btn-success" (click)="login()">
-        Login
-       </button>
-       <div *ngIf="userName" class=" d-lg-flex align-items-center "> <span class="fw-bold fs-4 me-2 title-name">Welcome {{userName}}</span>
-        <i (click)="logout()" class="fa-solid fa-right-from-bracket logout-btn text-danger border border-danger p-2 ms-3 rounded "></i>
+      <button *ngIf="!userName" class="btn btn-success" (click)="login()">Login</button>
+      <div *ngIf="userName" class="d-lg-flex align-items-center">
+        <span class="fw-bold fs-4 me-2 title-name">Welcome {{ userName }}</span>
+        <i (click)="logout()" class="fa-solid fa-right-from-bracket logout-btn text-danger border border-danger p-2 ms-3 rounded"></i>
       </div>
     </div>
+    
     </div>
    
   </div>
 </nav>
+
+
+
  
 
 

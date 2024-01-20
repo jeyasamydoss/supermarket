@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -32,6 +32,13 @@ public delete(path:any):Observable<any>{
 
 public postWithBody(path: any, data: any): Observable<any> {
   return this.http.post<any>(this.baseUrl + path, data);
+}
+private cartUpdatedSource = new EventEmitter<void>();
+  cartUpdated$ = this.cartUpdatedSource.asObservable();
+  cartItemCount: number = 0
+notifyCartUpdate() {
+  this.cartItemCount++; // Increment the cart item count
+  this.cartUpdatedSource.emit();
 }
 
 

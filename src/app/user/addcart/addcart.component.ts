@@ -72,7 +72,18 @@ this.route.navigate(['checkout']);
     this.cartItems[index].quantity = newQuantity;
   }
   
-  
+  deleteItem(id: number): void {
+    this.api.delete(`addcart/${id}`).subscribe(
+      () => {
+        console.log('Item deleted successfully');
+        this.getCartItems(); // Refresh the cart items after deletion
+      },
+      (error) => {
+        console.error('Error deleting item:', error);
+        // Handle error appropriately
+      }
+    );
+  }
   
   
 }
