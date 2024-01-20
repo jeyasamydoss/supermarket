@@ -48,6 +48,7 @@ this.id  = this.routes.snapshot.queryParams['id'];
   cartItems: any[] = [];
 
 addToCart(product: any) {
+  this.api.notifyCartUpdate();
   const cartItem = {
     productName: product.productName,
     price: product.price,
@@ -67,6 +68,22 @@ addToCart(product: any) {
     }
   );
 }
+
+getCartItems() {
+  this.api.get('addcart').subscribe(
+    (data) => {
+      console.log('Cart Items:', data);
+      this.cartItems = data;
+    },
+    (error) => {
+      console.error('Error fetching cart items:', error);
+      // Handle error appropriately
+    }
+  );
+}
+
+
+
 
 
 }
