@@ -9,11 +9,6 @@ import { ApiService } from 'src/app/api.service';
 })
 export class AddcartComponent implements OnInit {
 data: any;
-
-  // constructor(private route:Router) { }
-
-  // ngOnInit() {
-  // }
   gotocheckout() {
 this.route.navigate(['checkout']);
   }
@@ -26,14 +21,21 @@ this.route.navigate(['checkout']);
   }
 
   getCartItems() {
-    this.api.get('addcart').subscribe(
+
+    const storedUser = localStorage.getItem('user')
+    if (!storedUser) {
+      // this.router.navigate(['/login']);
+      return;
+    }
+
+    const user = JSON.parse(storedUser);
+    this.api.get('addcart/userById/'+user.id).subscribe(
       (data) => {
         console.log('Cart Items:', data);
         this.cartItems = data;
       },
       (error) => {
         console.error('Error fetching cart items:', error);
-        // Handle error appropriately
       }
     );
   }
