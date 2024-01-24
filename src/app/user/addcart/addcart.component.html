@@ -45,7 +45,122 @@
                     <div class="heading-5 fw-medium text-gray-500">Total <i class="fa-solid fa-indian-rupee-sign"></i>{{ calculateGrandTotal() }}</div>
                 </div>
             </div>
-            <button class="button button-lg button-primary button-zakaria" (click)="gotocheckout()">Proceed to checkout</button>
+            <button *ngIf="!buy" class="button button-lg button-primary button-zakaria" (click)="gotocheckout()">Proceed to checkout</button>
         </div>
     </div>
 </section>
+
+<div *ngIf="buy" class="container mt-5">
+    <div class="row">
+      <div class="col-sm-6">
+  
+        <div style="background-image: url('/assets/map.png'); width: 400px; height: 500px; background-repeat: no-repeat;">
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-6">
+        <h2 class="style">
+          Delivery Address
+        </h2>
+        <form [formGroup]="checkForm">
+          <div class="container mt-5">
+            <div class="row">
+              <div class="col-sm-6 col-lg-6">
+                <div class="user-box">
+                  <span style="color: red;" class="me-1" *ngIf="fname?.invalid && fname?.touched">
+                    <span *ngIf="fname?.errors?.['required']" class="formvalidation">
+                      *Frist name required
+                    </span>
+                  </span>
+                  <input type="text" name="firstname" formControlName="fname" required>
+                  <label for="firstname">First Name</label>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-6">
+                <div class="user-box">
+                  <input type="text" name="lastname" formControlName="lname" required>
+  
+                  <span style="color: red;" *ngIf="lname?.invalid && lname?.touched">
+                    <span *ngIf="lname?.errors?.['required']" class="formvalidation">
+                      *last name required
+                    </span>
+                  </span>
+                  <label for="lastname">Last Name</label>
+                </div>
+              </div>
+            </div>
+            <div class="user-box ">
+              <div class="col-sm-12">
+                <input type="text" name="landmark" formControlName="landmark" required>
+  
+                <span style="color: red;" *ngIf="landmark?.invalid && landmark?.touched">
+                  <span *ngIf="landmark?.errors?.['required']" class="formvalidation">
+                    *Landmark required
+                  </span>
+                </span>
+                <label for="landmark">Landmark</label>
+              </div>
+            </div>
+            <div class="user-box">
+              <div class="col-sm-12">
+                <input type="text" name="address" formControlName="address" required>
+  
+                <span style="color: red;" *ngIf="address?.invalid && address?.touched">
+                  <span *ngIf="address?.errors?.['required']" class="formvalidation">
+                    *Address required
+                  </span>
+                </span>
+                <label for="address">Address</label>
+              </div>
+            </div>
+  
+            <div class="user-box">
+  
+              <div class="col-sm-12">
+                <input type="text" name="email" formControlName="email" required>
+  
+                <span style="color: red;" *ngIf="email?.invalid && email?.touched">
+                  <span *ngIf="email?.errors?.['required']" class="formvalidation">
+                    *Email required
+                  </span>
+                </span>
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 col-lg-6">
+                <div class="user-box">
+                  <div class="row">
+                    <div class="col-sm-12 ">
+                      <input type="number" name="mobile" formControlName="mobile" required>
+  
+                      <span style="color: red;" *ngIf="mobile?.invalid && mobile?.touched">
+                        <span *ngIf="mobile?.errors?.['required']" class="formvalidation">
+                          *Mobile required
+                        </span>
+                      </span>
+                      <label for="mobile">Mobile</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-6">
+                <div class="user-box">
+                  <input type="number" name="pin" formControlName="pin" required>
+  
+  
+                  <span style="color: red;" *ngIf="pin?.invalid && pin?.touched">
+                    <span *ngIf="pin?.errors?.['required']" class="formvalidation">
+                      *Pin required
+                    </span>
+                  </span>
+                  <label for="pin">Pincode</label>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <button class="btn btn-warning w-100 my-3">Buy Now</button>
+        </form>
+      </div>
+    </div>
+  </div>

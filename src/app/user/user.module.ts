@@ -14,7 +14,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CheckoutComponent } from './checkout/checkout.component';
 import { AddcartComponent } from './addcart/addcart.component';
 import { BlogComponent } from './blog/blog.component';
 @NgModule({
@@ -31,7 +30,7 @@ import { BlogComponent } from './blog/blog.component';
 ],
 
   declarations: [UserComponent,UserHeaderComponent,MenuComponent,
-    ProductComponent,ContactusComponent,AboutusComponent,FooterComponent,BlogComponent,AddcartComponent,CheckoutComponent],
+    ProductComponent,ContactusComponent,AboutusComponent,FooterComponent,BlogComponent,AddcartComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UserModule { }

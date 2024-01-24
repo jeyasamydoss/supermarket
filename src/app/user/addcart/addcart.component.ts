@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
@@ -9,8 +10,12 @@ import { ApiService } from 'src/app/api.service';
 })
 export class AddcartComponent implements OnInit {
 data: any;
+buy:any;
   gotocheckout() {
-this.route.navigate(['checkout']);
+    this.buy= true;
+
+
+// this.route.navigate(['checkout']);
   }
   cartItems: any[] = [];
 
@@ -82,5 +87,34 @@ this.route.navigate(['checkout']);
     );
   }
   
-  
+  checkForm =new FormGroup({
+    fname:new FormControl("",[Validators.required]),
+    lname:new FormControl("",[Validators.required]),
+    landmark:new FormControl("",[Validators.required]),
+    address:new FormControl("",[Validators.required]),
+    email:new FormControl("",[Validators.required]),
+    mobile:new FormControl("",[Validators.required]),
+    pin:new FormControl("",[Validators.required]),
+  })
+  get fname(){
+    return this.checkForm.get('fname');
+  }
+  get lname(){
+    return this.checkForm.get('lname');
+  }
+  get landmark(){
+    return this.checkForm.get('landmark');
+  }
+  get address(){
+    return this.checkForm.get('address');
+  }
+  get email(){
+    return this.checkForm.get('email');
+  }
+  get mobile(){
+    return this.checkForm.get('mobile');
+  }
+  get pin(){
+    return this.checkForm.get('pin');
+  }
 }
