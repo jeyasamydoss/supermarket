@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/api.service';
 export class AddcartComponent implements OnInit {
 data: any;
 buy:any;
+userId:any;
   gotocheckout() {
     this.buy= true;
 
@@ -34,6 +35,7 @@ buy:any;
     }
 
     const user = JSON.parse(storedUser);
+    this.userId = user.id;
     this.api.get('addcart/userById/'+user.id).subscribe(
       (data) => {
         console.log('Cart Items:', data);
@@ -87,20 +89,23 @@ buy:any;
     );
   }
   
-  checkForm =new FormGroup({
-    fname:new FormControl("",[Validators.required]),
-    lname:new FormControl("",[Validators.required]),
-    landmark:new FormControl("",[Validators.required]),
-    address:new FormControl("",[Validators.required]),
-    email:new FormControl("",[Validators.required]),
-    mobile:new FormControl("",[Validators.required]),
-    pin:new FormControl("",[Validators.required]),
-  })
-  get fname(){
-    return this.checkForm.get('fname');
+  checkForm = new FormGroup({
+    firstName: new FormControl("", [Validators.required]),
+    lastName: new FormControl("", [Validators.required]),
+    landmark: new FormControl("", [Validators.required]),
+    address: new FormControl("", [Validators.required]),
+    email: new FormControl("", [Validators.required]),
+    mobile: new FormControl("", [Validators.required]),
+    pincode: new FormControl("", [Validators.required]),
+    orderItem: new FormControl([] as { productName: string; price: number; quantity: number; image: string }[]), 
+    user: new FormControl({ id: "" }), 
+  });
+  
+  get firstName(){
+    return this.checkForm.get('firstName');
   }
-  get lname(){
-    return this.checkForm.get('lname');
+  get lastName(){
+    return this.checkForm.get('lastName');
   }
   get landmark(){
     return this.checkForm.get('landmark');
@@ -114,7 +119,32 @@ buy:any;
   get mobile(){
     return this.checkForm.get('mobile');
   }
-  get pin(){
-    return this.checkForm.get('pin');
+  get pincode(){
+    return this.checkForm.get('pincode');
   }
+
+  order() {
+    // Create a new array with the required structure
+    const orderItemsArray = this.cartItems.map(item => ({
+      productName: item.productName,
+      price: item.price,
+      quantity: item.quantity,
+      image: item.image
+    }));
+  
+    this.checkForm.patchValue({ orderItem : orderItemsArray });
+// Assuming userId is a number
+this.checkForm.patchValue({
+  user: {
+    id: this.userId,
+  }
+});
+    this.api.post('order', this.checkForm.value).subscribe((res) => {
+      console.log(res);
+    });
+  }
+  
+  
+  
+  
 }
