@@ -45,25 +45,20 @@ this.route.navigate(['checkout']);
   getImageUrl(imageName: string): string {
     return `http://localhost:8080/${imageName}`;
   }
-  // Function to calculate the total for an individual item based on quantity
   calculateTotal(item: any): number {
     return item.price * item.quantity;
   }
 
-  // Function to calculate the grand total for all items in the cart
   calculateGrandTotal(): number {
     return this.cartItems.reduce((total, item) => total + this.calculateTotal(item), 0);
   }
 
-  // Function to update the quantity for an item
  
 
-  // Function to increment the quantity for an item
   incrementQuantity(index: number): void {
     this.cartItems[index].quantity++;
   }
 
-  // Function to decrement the quantity for an item
   decrementQuantity(index: number): void {
     if (this.cartItems[index].quantity > 1) {
       this.cartItems[index].quantity--;
@@ -78,11 +73,11 @@ this.route.navigate(['checkout']);
     this.api.delete(`addcart/${id}`).subscribe(
       () => {
         console.log('Item deleted successfully');
-        this.getCartItems(); // Refresh the cart items after deletion
+        this.getCartItems(); 
       },
       (error) => {
         console.error('Error deleting item:', error);
-        // Handle error appropriately
+       
       }
     );
   }
