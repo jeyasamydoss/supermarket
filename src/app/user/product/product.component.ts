@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { SnackbarServiceService } from 'src/app/common/snackbarService.service';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +13,7 @@ export class ProductComponent implements OnInit {
   id: any;
   categoryTitle: any;
 
-  constructor(private api: ApiService, private routes: ActivatedRoute, private router: Router) {
+  constructor(private api: ApiService, private routes: ActivatedRoute, private router: Router,private snackBar:SnackbarServiceService) {
     this.id = this.routes.snapshot.queryParams['id'];
   }
 
@@ -60,23 +61,19 @@ export class ProductComponent implements OnInit {
     this.api.notifyCartUpdate();
     const user = JSON.parse(storedUser);
     const cartItem = {
+      productId:product.id,
       productName: product.productName,
       price: product.price,
       quantity: 1,
       image: product.imageGalleries[0].name,
       user: {
         id:user.id
-      }  // Assuming userId is the correct property for user identification
+      }  
     };
 
     this.api.postWithBody('addcart', cartItem).subscribe(
       (response) => {
-        console.log('Product added to cart:', response);
-        this.cartItems.push(response); // Store the added product locally
-      },
-      (error) => {
-        console.error('Error adding product to cart:', error);
-        // Handle error appropriately
+        this.snackBar.showSuccessMessage(response.message);
       }
     );
   }
@@ -89,7 +86,6 @@ export class ProductComponent implements OnInit {
       },
       (error) => {
         console.error('Error fetching cart items:', error);
-        // Handle error appropriately
       }
     );
   }

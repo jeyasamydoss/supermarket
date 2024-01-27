@@ -45,7 +45,7 @@
                     <div class="heading-5 fw-medium text-gray-500">Total <i class="fa-solid fa-indian-rupee-sign"></i>{{ calculateGrandTotal() }}</div>
                 </div>
             </div>
-            <button *ngIf="!buy" class="button button-lg button-primary button-zakaria" (click)="gotocheckout()">Proceed to checkout</button>
+            <button *ngIf="!buy" class="checkout-btn" (click)="gotocheckout()">Proceed to checkout</button>
         </div>
     </div>
 </section>

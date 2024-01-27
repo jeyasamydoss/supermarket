@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { SnackbarServiceService } from 'src/app/common/snackbarService.service';
 
 @Component({
   selector: 'app-addcart',
@@ -9,18 +10,18 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./addcart.component.css']
 })
 export class AddcartComponent implements OnInit {
-data: any;
-buy:any;
-userId:any;
+  data: any;
+  buy: any;
+  userId: any;
   gotocheckout() {
-    this.buy= true;
+    this.buy = true;
 
 
-// this.route.navigate(['checkout']);
+    // this.route.navigate(['checkout']);
   }
   cartItems: any[] = [];
 
-  constructor(private api: ApiService,private route:Router) { }
+  constructor(private api: ApiService, private route: Router, private router: Router, private snackBar: SnackbarServiceService) { }
 
   ngOnInit() {
     this.getCartItems();
@@ -36,7 +37,7 @@ userId:any;
 
     const user = JSON.parse(storedUser);
     this.userId = user.id;
-    this.api.get('addcart/userById/'+user.id).subscribe(
+    this.api.get('addcart/userById/' + user.id).subscribe(
       (data) => {
         console.log('Cart Items:', data);
         this.cartItems = data;
@@ -60,7 +61,7 @@ userId:any;
     return this.cartItems.reduce((total, item) => total + this.calculateTotal(item), 0);
   }
 
- 
+
 
   incrementQuantity(index: number): void {
     this.cartItems[index].quantity++;
@@ -75,20 +76,20 @@ userId:any;
     const newQuantity = (event.target as HTMLInputElement).valueAsNumber;
     this.cartItems[index].quantity = newQuantity;
   }
-  
+
   deleteItem(id: number): void {
     this.api.delete(`addcart/${id}`).subscribe(
       () => {
-        console.log('Item deleted successfully');
-        this.getCartItems(); 
+        this.snackBar.showErrorMessage('Product  Removed in Cart');
+        this.getCartItems();
       },
       (error) => {
         console.error('Error deleting item:', error);
-       
+
       }
     );
   }
-  
+
   checkForm = new FormGroup({
     firstName: new FormControl("", [Validators.required]),
     lastName: new FormControl("", [Validators.required]),
@@ -97,54 +98,58 @@ userId:any;
     email: new FormControl("", [Validators.required]),
     mobile: new FormControl("", [Validators.required]),
     pincode: new FormControl("", [Validators.required]),
-    orderItem: new FormControl([] as { productName: string; price: number; quantity: number; image: string }[]), 
-    user: new FormControl({ id: "" }), 
+    orderItem: new FormControl([] as { productName: string; price: number; quantity: number; image: string }[]),
+    user: new FormControl({ id: "" }),
   });
-  
-  get firstName(){
+
+  get firstName() {
     return this.checkForm.get('firstName');
   }
-  get lastName(){
+  get lastName() {
     return this.checkForm.get('lastName');
   }
-  get landmark(){
+  get landmark() {
     return this.checkForm.get('landmark');
   }
-  get address(){
+  get address() {
     return this.checkForm.get('address');
   }
-  get email(){
+  get email() {
     return this.checkForm.get('email');
   }
-  get mobile(){
+  get mobile() {
     return this.checkForm.get('mobile');
   }
-  get pincode(){
+  get pincode() {
     return this.checkForm.get('pincode');
   }
 
   order() {
-    // Create a new array with the required structure
     const orderItemsArray = this.cartItems.map(item => ({
       productName: item.productName,
       price: item.price,
       quantity: item.quantity,
       image: item.image
     }));
-  
-    this.checkForm.patchValue({ orderItem : orderItemsArray });
-// Assuming userId is a number
-this.checkForm.patchValue({
-  user: {
-    id: this.userId,
-  }
-});
+
+    this.checkForm.patchValue({ orderItem: orderItemsArray });
+    this.checkForm.patchValue({
+      user: {
+        id: this.userId,
+      }
+    });
     this.api.post('order', this.checkForm.value).subscribe((res) => {
       console.log(res);
+      this.cartItemStatusChange();
     });
   }
-  
-  
-  
-  
-}
+
+  cartItemStatusChange() {
+    for (const item of this.cartItems) {
+      this.api.get('addcart/updateCart/'+ item.id).subscribe((res: any) => {
+        console.log(res);
+        this.route.navigate(['']);
+      });
+    }
+  }
+  }
