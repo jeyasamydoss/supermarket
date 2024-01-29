@@ -33,13 +33,13 @@ public delete(path:any):Observable<any>{
 public postWithBody(path: any, data: any): Observable<any> {
   return this.http.post<any>(this.baseUrl + path, data);
 }
-private cartUpdatedSource = new EventEmitter<void>();
-  cartUpdated$ = this.cartUpdatedSource.asObservable();
-  cartItemCount: number = 0
-notifyCartUpdate() {
-  this.cartItemCount++; // Increment the cart item count
-  this.cartUpdatedSource.emit();
-}
+// private cartUpdatedSource = new EventEmitter<void>();
+//   cartUpdated$ = this.cartUpdatedSource.asObservable();
+//   cartItemCount: number = 0
+// notifyCartUpdate() {
+//   this.cartItemCount++; // Increment the cart item count
+//   this.cartUpdatedSource.emit();
+// }
 
 
 }

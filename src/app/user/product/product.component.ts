@@ -58,7 +58,7 @@ export class ProductComponent implements OnInit {
       return;
     }
 
-    this.api.notifyCartUpdate();
+    // this.api.notifyCartUpdate();
     const user = JSON.parse(storedUser);
     const cartItem = {
       productId:product.id,

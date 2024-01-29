@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  public cartItemCount: number = 0;
+  // public cartItemCount: number = 0;
   private cartUpdateSubscription: Subscription;
   constructor(private api:ApiService,private router:Router) { }
   userName:any;
@@ -31,13 +31,12 @@ export class MenuComponent implements OnInit {
       this.categoryList = res;
     })
 
-    this.cartItemCount = this.api.cartItemCount; // Initialize the cartItemCount
-
-    this.cartUpdateSubscription = this.api.cartUpdated$.subscribe(() => {
-      // Handle the cart update notification
-      console.log('Cart updated');
-      this.cartItemCount = this.api.cartItemCount; // Update the cartItemCount on each update
-    });
+    // this.cartItemCount = this.api.cartItemCount;
+    console.log('Cart updated');
+    // this.cartUpdateSubscription = this.api.cartUpdated$.subscribe(() => {
+      // console.log('Cart updated');
+      // this.cartItemCount = this.api.cartItemCount; 
+    // });
 
   }
   gotohome() {

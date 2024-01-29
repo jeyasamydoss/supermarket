@@ -39,7 +39,7 @@
     <div class="text-center d-lg-flex align-items-center">
       <a class="me-3 cart-icon-container" aria-current="page" href="/addcart">
         <mat-icon>add_shopping_cart</mat-icon>
-        <span *ngIf="cartItemCount > 0" class="cart-notification">{{ cartItemCount }}</span>
+        <!-- <span *ngIf="cartItemCount > 0" class="cart-notification">{{ cartItemCount }}</span> -->
       </a>
       <button *ngIf="!userName" class="btn btn-success" (click)="login()">Login</button>
       <div *ngIf="userName" class="d-lg-flex align-items-center">
