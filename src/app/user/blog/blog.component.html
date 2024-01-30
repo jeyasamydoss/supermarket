@@ -1,45 +1,239 @@
-<div class="hero-wrap hero-bread" style="background-image: url('/assets/aboutus.jpg');">
-  <div class="container newone">
-    <div class="row no-gutters slider-text align-items-center justify-content-center">
-      <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
-        <p class="breadcrumbs"><span class="mr-2"><a href="index.html" style="color: #fff;">Home</a></span> <span style="padding-left: 10px;">Blog</span></p>
-        <h1 class="mb-0 bread">BLOG</h1>
-      </div>
-    </div>
-  </div>
-</div>
-<section class="ftco-section ftco-degree-bg">
-<div class="container">
-<div class="card mb-4 sec2">
-  <div class="row">
-    <div class="col-md-4 d-flex">
-      <img src="/assets/salad veg.jpg" class="img-fluid " height="400px" width="400px" alt="...">
-    </div>
-    <div class="col-md-4">
-      <div class="card-body">
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-        <h5 class="card-title">Even the all-powerful Pointing has no control about the blind texts</h5>
-        <p class="card-text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-        <a href="blog-single.html" class="btn btn-primary py-2 px-3">Read more</a>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="card mb-4 sec2">
-  <div class="row">
-    <div class="col-md-4 d-flex">
-      <img src="/assets/Beans .jpg" class="img-fluid " height="400px" width="400px" alt="...">
-    </div>
-    <div class="col-md-4">
-      <div class="card-body">
-        <p class="card-text"><small class="text-body-secondary">Last updated 4 mins ago</small></p>
-        <h5 class="card-title">Even the all-powerful Pointing has no control about the blind texts</h5>
-        <p class="card-text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-        <a href="blog-single.html" class="btn btn-primary py-2 px-3">Read more</a>
+<div class="container-fluid">
+  <div
+    class="hero-wrap hero-bread"
+    style="background-image: url('/assets/aboutus.jpg')"
+  >
+    <div class="container newone">
+      <div
+        class="row no-gutters slider-text align-items-center justify-content-center"
+      >
+        <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+          <span class="mr-2"
+            ><a href="index.html" style="color: #fff" class="home">Home</a></span
+          >
+          <span class="ms-2">Blog</span>
+          <h1 class="mb-0 bread">BLOG</h1>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
-</section>
+  </div>
+  
+  <section>
+  <div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-md-9">
+        
+        <!-- imag start -->
+        <div>
+          <div class="row mt-5 " *ngFor="let food of foods">
+            <div class="col-md-5 ">
+           
+              <a href="#"><img [src]="food.image" alt="" width="100%" height="100%"></a>
+  
+            </div>
+            <!-- image row -->
+            <div class="col-md-7">
+              <div class="mb-4 date">
+                <div class="date1">
+                  <a href="#" class="first">{{food.date}}</a>
+                  <a href="#" class="first ms-2">{{food.user}}</a>
+                  <a href="#" class="first ms-2"><span><i class="fa-regular fa-message"></i></span>3</a>
+                </div>
+                
+                <div class="heading mt-4">
+                  <h3>{{food.heading}}</h3>
+                </div>
+               
+              <div class="subhead mt-4">
+                <p>{{food.description}}</p>
+              </div>
+    
+              <div class="button mt-5">
+              <a class="btn" href="#">Read more</a>
+              </div>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- img closed -->
+  
+        </div>
+      <!-- image end -->
+  
+            <!-- search start -->
+  <div class="col-md-3 mt-5">
+     <div class="search-bar d-flex">
+      <input type="search" id="gsearch" placeholder="Search">
+      <span class="btn btn-outline-success ms-2"><i class="fa-solid fa-magnifying-glass"></i></span>
+  </div>
+   
+    <div class="stext mt-5">
+      <h3>Categories</h3>
+    </div>
+  
+    <!-- list start -->
+    <div class="list mt-5">
+      <ol class="list-group list-group-numbered">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <a href="#" class="suba">Vegetables</a>
+        </div>
+          <span>(14)</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <a href="#" class="suba">Fruits</a>
+        </div>
+          <span>(25)</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <a href="#" class="suba">Juice</a>
+            </div>
+            <span>(36)</span>
+          </li>
+  
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+              <a href="#" class="suba">Dries</a>
+            </div>
+          <span>(47)</span>
+        </li>
+      </ol>
+  
+    </div>
+  
+  <!-- list end -->
+  
+  <!-- recent start -->
+  <div>
+    <h3 class="sblog mt-5">Recent Blog</h3>
+    
+  
+    <!-- sblog strat -->
+    <div>
+    <div class="row mt-5">
+      <div class="col-md-3 image2">
+     
+        <a href="#"><img src="/assets/salad veg.jpg" alt="" width="100px" height="100px" ></a>
+      </div>
+      <!-- image row -->
+      <div class="col-md-9">
+        <div class="sheading ms-4">
+          <h4 class="ms-3">Even the all-powerful Pointing has no control about the blind texts</h4>
+        <div class="mb-4 date2">
+          <div class="sndate">
+            <a href="#" class="ctext">Jan 20,2024</a>
+            <a href="#" class="ctext ms-2">Admin</a>
+            <a href="#" class="ctext ms-2"><span><i class="fa-regular fa-message"></i></span>19</a>
+          </div>
+          
+         
+          </div>
+       </div>
+      </div>
+    </div>
+  </div>
+  <!-- sblog end -->
+  
+   <!-- sblog strat -->
+    <!-- sblog strat -->
+    <div>
+      <div class="row mt-5">
+        <div class="col-md-3 image2">
+       
+          <a href="#"><img src="/assets/veg saled1.jpeg" alt="" width="100px" height="100px" ></a>
+        </div>
+        <!-- image row -->
+        <div class="col-md-9">
+          <div class="sheading ms-4">
+            <h4 class="ms-3">Even the all-powerful Pointing has no control about the blind texts</h4>
+          <div class="mb-4 date2">
+            <div class="sndate">
+              <a href="#" class="ctext">Jan 20,2024</a>
+              <a href="#" class="ctext ms-2">Admin</a>
+              <a href="#" class="ctext ms-2"><span><i class="fa-regular fa-message"></i></span>19</a>
+            </div>
+            
+           
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  <!-- sblog end -->
+  
+   <!-- sblog strat -->
+    <!-- sblog strat -->
+    <div>
+      <div class="row mt-5">
+        <div class="col-md-3 image2">
+       
+          <a href="#"><img src="/assets/tiger veg.jpg" alt="" width="100px" height="100px" ></a>
+        </div>
+        <!-- image row -->
+        <div class="col-md-9">
+          <div class="sheading ms-4">
+            <h4 class="ms-3">Even the all-powerful Pointing has no control about the blind texts</h4>
+          <div class="mb-4 date2">
+            <div class="sndate">
+              <a href="#" class="ctext">Jan 20,2024</a>
+              <a href="#" class="ctext ms-2">Admin</a>
+              <a href="#" class="ctext ms-2"><span><i class="fa-regular fa-message"></i></span>19</a>
+            </div>
+            
+           
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- sblog end -->
+  
+  <!-- tag start -->
+  <div class="tcloud">
+  <h3 class="tag">Tag Cloud</h3>
+  <div class="stag mt-4">
+    <a href="#" class="stag ms-2">fruits</a>
+    <a href="#" class="stag ms-2">tomatoe</a>
+    <a href="#" class="stag ms-2">mango</a>
+    <a href="#" class="stag ms-2">apple</a>
+    <a href="#" class="stag ms-2">carrots</a>
+    <a href="#" class="stag ms-2">orange</a>
+    <a href="#" class="stag ms-2">pepper</a>
+    <a href="#" class="stag ms-2">eggplant</a>
+  </div>
+  
+  </div>
+  <!-- tag end -->
+  
+  <!-- paragraph start -->
+  <div class="hphp mt-4">
+    <h3 class="php">Paragraph</h3>
+  <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore vero cupiditate magni ipsum, iure laboriosam repellat, asperiores numquam et ullam, maxime atque.</p>
+  </div>
+  
+  
+  </div>
+  
+      <!-- search end -->
+    </div>
+  </div>
+  </div>
+  </section>
+  
+  <div class="mouse">
+    <a (click)="scrollToTop()"  class="mouse-icon" >
+      <div class="mouse-wheel">
+        <span class="arrow-up"><mat-icon>keyboard_arrow_up</mat-icon></span>
+  
+      </div>
+    </a>
+    
+  </div>
