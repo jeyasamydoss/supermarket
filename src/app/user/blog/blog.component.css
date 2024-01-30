@@ -12,6 +12,10 @@ element.style {
     padding: 10em 0;
 }
 
+.home {
+    text-decoration: none;
+}
+
 .hero-wrap {
     width: 100%;
     position: relative;
@@ -27,13 +31,90 @@ body {
     margin: 0;
 }
 
-.sec2 {
-    margin: 50px;
-    padding: 40px;
-}
-
 .newone {
     color: #fff;
     
+}
+
+.date1 .first {
+    color: black;
+    text-decoration: none;
+}
+
+.button .btn {
+    border-radius: 40px;
+    background-color: #82ae46;
+    
+    
+}
+
+
+.sndate .ctext {
+    text-decoration: none;
+    color: black;
+}
+
+.tcloud .stag {
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 7px;
+    margin-right: 4px;
+    border-radius: 4px;
+    color: #000000;
+    font-size: 14px;
+    text-decoration: none;
+    background-color: transparent;
+
+}
+
+.stag{
+    border: 1px solid #ccc;
+
+}
+
+.mouse {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.mouse-icon {
+    height: 60px;
+    width: 60px;
+    border-radius: 1px solid rgba(255,255,255,0.7);
+    border-radius: 50%;
+    background-color: #82ae46;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+.a {
+    transition: .3s all ease;
+    color: #82ae46;
+    text-decoration: none;
+}
+
+.mouse-wheel {
+    height: 30px;
+    margin: 2px auto 0;
+    display: block;
+    width: 30px;
+    background: transparent;
+    border-radius: 50%;
+    animation: 1.6s ease infinite wheel-up-down;
+    color: #fff;
+    font-size: 20px;
+}
+
+@keyframes wheel-up-down {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(30px); /* Adjust this value as needed */
+    }
 }
 
