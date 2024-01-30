@@ -141,6 +141,7 @@ export class AddcartComponent implements OnInit {
     this.api.post('order', this.checkForm.value).subscribe((res) => {
       console.log(res);
       this.cartItemStatusChange();
+      this.snackBar.showSuccessMessage("Your Order SuccessFully Registered");
     });
   }
 
