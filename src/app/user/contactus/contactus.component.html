@@ -5,9 +5,9 @@
               <p class="breadcrumbs mt-5" style="color: white;">
                   <span class="mr-2 text-center"><a href="index.html" style="color: white; text-decoration: none;">Home</a></span>
                   <span style="color: white;">&nbsp;&nbsp;&nbsp;</span>
-                  <span>About us</span>
+                  <span>Contact us</span>
               </p>
-              <h1 class="mb-0 bread" style="color: white;">About us</h1>
+              <h1 class="mb-0 bread" style="color: white;">Contact us</h1>
           </div>
       </div>
   </div>
@@ -42,23 +42,56 @@
 
       <div class="row block-9">
           <div class="col-md-6 order-md-last d-flex">
-              <form  [formGroup]="contact" method="post" class="bg-white p-5 contact-form w-100 h-100" (submit)="gotoadmin()">
-                  <div class="form-group">
-                      <input type="text" class="form-control h-100" placeholder="Your Name" name="name" formControlName="name">
-                  </div>
-                  <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Your Email" name="email" formControlName="email">
-                  </div>
-                  <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Subject" name="subject" formControlName="subject">
-                  </div>
-                  <div class="form-group">
-                      <textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message" formControlName="message" ></textarea>
-                  </div>
-                  <div class="form-group">
-                      <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-                  </div>
-              </form>
+            <form [formGroup]="contactForm" (ngSubmit)="gotoadmin()">
+              <div class="form-group">
+                <input type="text" class="form-control h-100" placeholder="Your Name" formControlName="name">
+                <span style="color: red;" *ngIf="name?.invalid && name?.touched">
+                  <span *ngIf="name?.errors?.['required']" class="formvalidation small">
+                    *Name required
+                  </span>
+                </span>
+               </div>
+               <div class="form-group">
+                <input type="text" maxlength="10" class="form-control h-100" placeholder="Your Mobile Number" formControlName="mobile_num">
+                <span style="color: red;" *ngIf="mobile_num?.invalid && mobile_num?.touched">
+                  <span *ngIf="mobile_num?.errors?.['required']" class="formvalidation small">
+                    *Mobile Number required
+                  </span>
+                </span>
+               </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Email" formControlName="email">
+                <span style="color: red;" *ngIf="email?.invalid && email?.touched">
+                  <span *ngIf="email?.errors?.['required']" class="formvalidation">
+                    *Email required
+                  </span>
+                  <span *ngIf="email?.errors?.['email']" class="formvalidation">
+                    *Please provide a valid email address
+                  </span>
+                </span>
+                
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Subject" formControlName="subject">
+                <span style="color: red;" *ngIf="subject?.invalid && subject?.touched">
+                  <span *ngIf="subject?.errors?.['required']" class="formvalidation small">
+                    *Subject required
+                  </span>
+                </span>
+              </div>
+              <div class="form-group">
+                <textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message" formControlName="message"></textarea>
+                <span style="color: red;" *ngIf="message?.invalid && message?.touched">
+                  <span *ngIf="message?.errors?.['required']" class="formvalidation small">
+                    *Message required
+                  </span>
+                </span>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5" [disabled]="!contactForm.valid">
+              </div>
+            </form>
+            
           </div>
 
           <div class="col-md-6 d-flex">
