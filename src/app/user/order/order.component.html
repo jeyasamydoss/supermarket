@@ -1,3 +1,44 @@
-<p>
-  order works!
-</p>
+<div class="container ">
+  <h1 class="text-center text-primary  fw-bold border p-2 my-4">Order Details</h1>
+  <div *ngFor="let data of orderData" class="container  mb-4 p-4 bg-set">
+    <div class="w-100 ">
+      <h2 class="mb-4">Order Id: 1233455677</h2>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <p><strong>Order Placed On:</strong> {{ data.createdAt }}</p>
+          <p><strong>Name:</strong> {{ data.firstName }} {{ data.lastName }}</p>
+          <p><strong>Address:</strong> {{ data.address }}</p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>Mobile:</strong> {{ data.mobile }}</p>
+          <p><strong>Email:</strong> {{ data.email }}</p>
+          <p><strong>Grant Total:</strong> </p>
+
+        </div>
+      </div>
+    </div>
+    <mat-divider class="hero-wrap"></mat-divider>
+
+    <h2 class="text-center fw-bold text-success my-3">Order Item List</h2>
+    <div class="row">
+      <div *ngFor="let order of data.orderItem" class="col-sm-4 col-md-4">
+        <div class="card mb-4">
+          <div class="row g-0">
+            <div class="col-md-4 d-flex align-items-center">
+              <img [src]="getImage(order.image)" class="w-100" alt="Product Image">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-text"><strong>Product Name:</strong> {{ order.productName }}</p>
+                <p class="card-text"><strong>Price:</strong> {{ order.price }}</p>
+                <p class="card-text"><strong>Quantity:</strong> {{ order.quantity }}</p>
+                <p class="card-text"><strong>Total Price:</strong> {{ order.quantity *order.price}}</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

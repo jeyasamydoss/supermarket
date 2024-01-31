@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { AddcartComponent } from './addcart/addcart.component';
 import { BlogComponent } from './blog/blog.component';
+import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'aboutus', component: AboutusComponent },
       { path: 'addcart', component: AddcartComponent },
       { path: 'blog', component: BlogComponent },
+      {path:'order',component:OrderComponent}
 
 
     ]
