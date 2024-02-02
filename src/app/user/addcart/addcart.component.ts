@@ -14,10 +14,12 @@ export class AddcartComponent implements OnInit {
   buy: any;
   userId: any;
   gotocheckout() {
-    this.buy = true;
+    if(this.cartItems.length > 0){
+
+      this.buy = true;
+    }
 
 
-    // this.route.navigate(['checkout']);
   }
   cartItems: any[] = [];
 
@@ -100,6 +102,7 @@ export class AddcartComponent implements OnInit {
     pincode: new FormControl("", [Validators.required]),
     orderItem: new FormControl([] as { productName: string; price: number; quantity: number; image: string }[]),
     user: new FormControl({ id: "" }),
+    grantTotal: new FormControl()
   });
 
   get firstName() {
@@ -126,24 +129,28 @@ export class AddcartComponent implements OnInit {
 
   order() {
     const orderItemsArray = this.cartItems.map(item => ({
-      productName: item.productName,
-      price: item.price,
-      quantity: item.quantity,
-      image: item.image
+        productName: item.productName,
+        price: item.price,
+        quantity: item.quantity,
+        image: item.image
     }));
+
+    const grandTotal = this.calculateGrandTotal(); 
 
     this.checkForm.patchValue({ orderItem: orderItemsArray });
     this.checkForm.patchValue({
-      user: {
-        id: this.userId,
-      }
+        user: {
+            id: this.userId,
+        },
+        grantTotal: grandTotal 
     });
+
     this.api.post('order', this.checkForm.value).subscribe((res) => {
-      console.log(res);
-      this.cartItemStatusChange();
-      this.snackBar.showSuccessMessage("Your Order SuccessFully Registered");
+        console.log(res);
+        this.cartItemStatusChange();
+        this.snackBar.showSuccessMessage("Your Order Successfully Registered");
     });
-  }
+}
 
   cartItemStatusChange() {
     for (const item of this.cartItems) {

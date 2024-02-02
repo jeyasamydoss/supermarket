@@ -4,9 +4,9 @@
 </div>
 
 <section class="section section-xl bg-default">
-    <div class="container">
-        <div class="table-custom-responsive">
-            <table class="table-custom table-cart">
+    <div class="container ">
+        <div class="table-custom-responsive flow">
+            <table class="table-custom table-cart ">
                 <thead>
                     <tr>
                         <th>Product name</th>
@@ -26,7 +26,7 @@
                         <td>
                             <div class="table-cart-stepper">
                                 <div class="stepper">
-                                    <input class="form-input stepper-input" type="number" data-zeros="true" value="1" min="1" max="1000" (input)="updateQuantity(i, $event)">
+                                    <input class="form-input stepper-input text-center" type="number" data-zeros="true" value="1" min="1" max="1000" (input)="updateQuantity(i, $event)">
                                     <span class="stepper-arrow up"></span>
                                     <span class="stepper-arrow down"></span>
                                 </div>
@@ -37,12 +37,13 @@
                     </tr>
                 </tbody>
             </table>
+            <p *ngIf="cartItems.length === 0" class="fs-3 text-center mt-3"> No  Record Found in Cart</p>
         </div>
 
         <div class="group-xl group-justify mt-5">
             <div class="total-section">
                 <div class="group-md group-middle">
-                    <div class="heading-5 fw-medium text-gray-500">Total <i class="fa-solid fa-indian-rupee-sign"></i>{{ calculateGrandTotal() }}</div>
+                    <div class="fs-4" > <span class="fs-3 fw-bold ">Total Amount = </span> <i class="fa-solid fa-indian-rupee-sign ms-2"></i>{{ calculateGrandTotal() }}</div>
                 </div>
             </div>
             <button *ngIf="!buy" class="checkout-btn" (click)="gotocheckout()">Proceed to checkout</button>

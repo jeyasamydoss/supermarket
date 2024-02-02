@@ -148,4 +148,6 @@ letter-spacing: 0px;
     font-weight: bold;
     border-radius: 25px;
 }
-   
+   .flow{
+    overflow: auto;
+   }
