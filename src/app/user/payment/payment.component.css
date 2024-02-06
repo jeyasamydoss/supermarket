@@ -1,0 +1,82 @@
+
+
+ .input-container {
+    position: relative;
+    width: 100%; /* Adjust width as needed */
+}
+
+.input-container input {
+    padding-left: 10%; /* Ensure space for the icon */
+}
+
+.form-control {
+    font-size: 20px;
+}
+
+.txt {
+    font-size: 30px;
+    
+}
+
+.input-container .icon {
+    position: absolute;
+    left: 80%; /* Adjust the position of the icon */
+    top: 70%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Ensure the icon doesn't interfere with input */
+    height: 30%;
+    
+}
+
+.input-container .icon i {
+    color: #999; /* Set the color of the icon */
+}
+
+
+.image-container {
+
+    position: relative;
+    width: 50%;
+}
+.image-container input {
+    padding-left: 10%; /* Ensure space for the icon */
+}
+
+.image-container .img {
+    position: absolute;
+    left: 80%; /* Adjust the position of the icon */
+    top: 70%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Ensure the icon doesn't interfere with input */
+    height: 30%;
+    
+}
+
+.image-container .img i {
+    color: #999; /* Set the color of the icon */
+}
+
+.btn {
+background-color: rgb(226, 153, 9);
+color:black;
+}
+
+.newone .btn {
+    background-color: #999;
+    border: none;
+}
+
+.gpay {
+position: absolute;
+left: 80%;
+
+}
+
+.PhonePe {
+    position: absolute;
+    left: 80%;
+
+}
+
+
+

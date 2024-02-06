@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { SnackbarServiceService } from 'src/app/common/snackbarService.service';
+import { PaymentComponent } from '../payment/payment.component';
+
 
 @Component({
   selector: 'app-addcart',
@@ -23,7 +26,7 @@ export class AddcartComponent implements OnInit {
   }
   cartItems: any[] = [];
 
-  constructor(private api: ApiService, private route: Router, private router: Router, private snackBar: SnackbarServiceService) { }
+  constructor(private api: ApiService,private dialog:MatDialog, private route: Router, private router: Router, private snackBar: SnackbarServiceService) { }
 
   ngOnInit() {
     this.getCartItems();
@@ -150,8 +153,17 @@ export class AddcartComponent implements OnInit {
         this.cartItemStatusChange();
         this.snackBar.showSuccessMessage("Your Order Successfully Registered");
     });
-}
 
+  }
+  openPopup(): void {
+    const dialogRef = this.dialog.open(PaymentComponent, {
+      width: '550px', height:'650px', // Set the width of your popup
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The popup was closed');
+    });
+  }
   cartItemStatusChange() {
     for (const item of this.cartItems) {
       this.api.get('addcart/updateCart/'+ item.id).subscribe((res: any) => {
