@@ -1,0 +1,168 @@
+<div class="container">
+  <div class="mt-5">
+    <h2 class="ms-2" >
+      <span (click)="closeDialog()"><i class="fa-solid fa-arrow-left"></i></span> Payments
+    </h2>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="mt-5">
+        <div class="accordion" id="accordionExample">
+          <!-- Accordion Item 1 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <div class="ms-3">
+                  <span><i class="fa-regular fa-credit-card"></i></span> Credit / Debit Card / ATM Card
+                </div>
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <!-- Inner body content for Accordion 1 -->
+                <p><b>Note: </b>Please ensure your card can be used for online transactions. Learn more.</p>
+
+                <div class="input-container">
+                  <p>Card Number</p>
+                  <input type="text" id="payments" class="form-control form-control-lg txt"
+                    placeholder="xxxx xxxx xxxx xxxx">
+                  <img src="/assets/2credit-card.png" alt="" class="icon">
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-6">
+                    <p>Valid Thru</p>
+                    <input type="text" id="valid" class="form-control form-control-lg" placeholder="MM / YY">
+                  </div>
+
+                  <div class="col-6 image-container">
+                    <p>CVV</p>
+                    <input type="text" class="form-control form-control-lg" id="cvv" placeholder="CVV">
+                    <img src="/assets/question.png" alt="" class="img">
+                  </div>
+                </div>
+
+                <div class="col-12 d-grid gap-2 mt-3">
+                  <button class="btn btn-primary">Pay</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- End Accordion Item 1 -->
+
+          <!-- Accordion Item 2 with nested accordion -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <div>
+                  <img src="/assets/upi.png" alt=""> UPI
+                </div>
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <!-- Inner body content for Accordion 2 with nested accordion -->
+                <div class="accordion" id="nestedAccordion">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#nestedCollapseOne" aria-expanded="false" aria-controls="nestedCollapseOne">
+                        Google Pay <div class="gpay"><img src="/assets/google-pay.png" alt="" height="40px">
+                        </div>
+                      </button>
+                    </h2>
+                    <div id="nestedCollapseOne" class="accordion-collapse collapse show"
+                      data-bs-parent="#nestedAccordion">
+                      <div class="accordion-body">
+                        <div class="col-12 d-grid gap-2 mt-3">
+                          <button class="btn btn-primary">Pay</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#nestedCollapseTwo" aria-expanded="false" aria-controls="nestedCollapseTwo">
+                        PhonePe <div class="PhonePe"><img src="/assets/PhonePe.png" alt="" height="40px"></div>
+                      </button>
+                    </h2>
+                    <div id="nestedCollapseTwo" class="accordion-collapse collapse"
+                      data-bs-parent="#nestedAccordion">
+                      <div class="accordion-body">
+                        <div class="col-12 d-grid gap-2 mt-3">
+                          <button class="btn btn-primary">Pay</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Fixing IDs for unique identification -->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#nestedCollapseThree" aria-expanded="false" aria-controls="nestedCollapseThree">
+                        Add new UPI ID  
+                      </button>
+                    </h2>
+                    <div id="nestedCollapseThree" class="accordion-collapse collapse"
+                      data-bs-parent="#nestedAccordion">
+                      <div class="accordion-body">
+                        <p>UPI ID</p>
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-8">
+                              <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingInput"
+                                  placeholder="Enter your UPI ID">
+                              </div>
+                            </div>
+                            <div class="col-4">
+                              <button type="button" class="btn btn-secondary btn-lg">Verify</button>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 d-grid gap-2 mt-3 newone">
+                          <button class="btn btn-primary">Pay</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Accordion Item 3 -->
+
+                </div>
+                <!-- End Nested Accordion -->
+              </div>
+            </div>
+          </div>
+          <!-- End Accordion Item 2 -->
+
+          <!-- Accordion Item 3 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Cash on Delivery
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                10,300 people used online payment options in the last hour.Pay online now for safe and contactless delivery.
+
+                <div class="col-12 d-grid gap-2 mt-3">
+                  <button class="btn btn-primary">Pay</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Accordion Item 3 -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
