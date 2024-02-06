@@ -23,6 +23,11 @@ export class SidenavComponent implements OnInit {
       icon: 'equalizer',
       name: 'Category'
     },
+    {
+      path: '/admin/product',
+      icon: 'shop',
+      name: 'Product'
+    },
   ]
 
   constructor() { }

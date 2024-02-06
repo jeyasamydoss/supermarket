@@ -7,7 +7,7 @@
       <form [formGroup]="oderForm" (submit)="add()" class="form">
         <div class="form_front">
         <div class="row mb-2">
-          <label for="name" class="form_details">Product Name</label>
+          <label for="name" class="form_details">Category Name</label>
           <div class="col-sm-10 me-2">
             <input type="text" class="index" id="name" name="name" formControlName="name">
             <span style="color: red;" *ngIf="name?.invalid && name?.touched">

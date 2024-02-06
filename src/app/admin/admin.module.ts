@@ -17,6 +17,7 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { CategoryComponent } from './category/category.component';
+import { ProductComponent } from './product/product.component';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { CategoryComponent } from './category/category.component';
    
 ],
 
-  declarations: [AdminComponent,DashboardComponent,HeaderComponent,SidenavComponent,HomeComponent],
+  declarations: [AdminComponent,DashboardComponent,HeaderComponent,SidenavComponent,HomeComponent,ProductComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AdminModule { }
