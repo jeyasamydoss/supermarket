@@ -131,7 +131,14 @@ export class AddcartComponent implements OnInit {
   }
 
   order() {
-    const orderItemsArray = this.cartItems.map(item => ({
+    const dialogRef = this.dialog.open(PaymentComponent, {
+      width: '550px', height:'650px',
+    });
+    dialogRef.afterClosed().subscribe((result:boolean) =>{
+
+ 
+    if(result ===  true){
+      const orderItemsArray = this.cartItems.map(item => ({
         productName: item.productName,
         price: item.price,
         quantity: item.quantity,
@@ -153,11 +160,12 @@ export class AddcartComponent implements OnInit {
         this.cartItemStatusChange();
         this.snackBar.showSuccessMessage("Your Order Successfully Registered");
     });
-
+    }
+  })
   }
   openPopup(): void {
     const dialogRef = this.dialog.open(PaymentComponent, {
-      width: '550px', height:'650px', // Set the width of your popup
+      width: '550px', height:'650px',
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -15,7 +15,6 @@ export class PaymentComponent implements OnInit {
   options = [
     { title: 'Option 1', content: 'Content for option 1' },
     { title: 'Option 2', content: 'Content for option 2' },
-    // ... more options
   ];
   selectedOption: string = 'option1'; // Initial selected option
 
@@ -27,11 +26,13 @@ export class PaymentComponent implements OnInit {
 
 
 
-  // Method to close the dialog
   closeDialog(): void {
     this.dialog.close();
   }
 
+  payment(){
+    this.dialog.close(true);
+  }
   ngOnInit() {
   }
 
