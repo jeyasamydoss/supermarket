@@ -13,11 +13,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HomeComponent } from './home/home.component';
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import { CategoryComponent } from './category/category.component';
-import { ProductComponent } from './product/product.component';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -32,11 +31,11 @@ import { ProductComponent } from './product/product.component';
     MatDividerModule,
     MatListModule,
     MatPaginatorModule,
-    MatTableModule
-   
+    MatTableModule,
+    FormsModule
 ],
 
-  declarations: [AdminComponent,DashboardComponent,HeaderComponent,SidenavComponent,HomeComponent,ProductComponent],
+  declarations: [AdminComponent,DashboardComponent,HeaderComponent,SidenavComponent,HomeComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AdminModule { }

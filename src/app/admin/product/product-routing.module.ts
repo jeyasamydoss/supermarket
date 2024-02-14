@@ -1,12 +1,24 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { ProductComponent } from './product.component';
+import { AddComponent } from './add/add.component';
+import { ProductDatatableComponent } from './product-datatable/product-datatable.component';
 
-
+const routes: Routes = [ {
+    path: '',
+    component: ProductComponent,   
+    children: [
+      {path:'add',component:AddComponent},
+      {path:'',component:ProductDatatableComponent}
+      
+    ]
+  }];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+imports: [RouterModule.forChild(routes)],
+exports: [RouterModule]
 })
 export class ProductRoutingModule { }
+
+
+

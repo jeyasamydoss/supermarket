@@ -1,0 +1,49 @@
+  <div class="mb-3 row">
+    <label for="productName" class="col-sm-3 col-form-label text-end">Product Name:</label>
+    <div class="col-sm-4">
+      <input type="text" [(ngModel)]="productName" name="productName" class="form-control" id="productName"/>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <label for="price" class="col-sm-3 col-form-label text-end">Price:</label>
+    <div class="col-sm-4">
+      <input type="text" [(ngModel)]="price" name="price" class="form-control" id="price">
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <label for="category" class="col-sm-3 col-form-label text-end">Category:</label>
+    <div class="col-sm-4">
+      <select id="category" name="category" [(ngModel)]="categoryId" class="form-select" >
+        <option value="" selected >Select Category</option>
+        <option *ngFor="let data of categoryData" [value]="data.id">{{ data.name }}</option>
+      </select>
+    </div>
+  </div>
+   
+  <div class="mb-3 row">
+    <label for="images" class="col-sm-3 col-form-label text-end">Images:</label>
+    <div class="col-sm-4">
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" name="images" class="form-control" id="images">
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label"></label>
+    <div class="col-sm-4">
+      <div *ngIf="images" class="mt-2">
+        <img [src]="images" alt="" class="img-fluid rounded" style="max-width: 200px;">
+        <button class="btn btn-danger mt-2" (click)="remove()">Remove Image</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-4">
+      <button type="submit" class="btn btn-primary" (click)="post()">Submit</button>
+    </div>
+  </div>
+
+
