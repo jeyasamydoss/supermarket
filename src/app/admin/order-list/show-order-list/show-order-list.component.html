@@ -1,0 +1,89 @@
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Track Id</th>
+      <th scope="col">Ordered date</th>
+      <th scope="col">Grant Total</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of orderItems; let i = index">
+        <td>{{ item.firstName  }}</td>
+        <td>{{item.trackId}} </td>
+       <td>{{item.createdAt}}</td>
+       <td>{{item.grantTotal}}</td>
+       <td><button class=" btn btn-danger" (click)="status()">Status</button></td>
+
+    </tr>
+</tbody>
+</table> -->
+
+
+
+  <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="orderItems">
+        <ng-container matColumnDef="S.No">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+            S.No
+          </th>
+          <td mat-cell *matCellDef="let element let i = index"> {{i+1}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+            First Name
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="trackId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+            Track Id
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.trackId}} </td>
+        </ng-container>
+        <ng-container matColumnDef="createdAt">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+            Ordered date
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.createdAt}} </td>
+        </ng-container>
+        <ng-container matColumnDef="orderStatus">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+            Ordered Status
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.orderStatus}} </td>
+        </ng-container>
+        <ng-container matColumnDef="grantTotal">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+            Grant Total
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.grantTotal}} </td>
+        </ng-container>
+      
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by actions">
+            Acitons
+          </th>
+          <td mat-cell *matCellDef="let element"> 
+             <button class=" btn btn-primary me-2" (click)="status(element.id)">
+             Status</button> </td>
+        </ng-container>
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <div>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+          aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>
+
+    </div>
+  
+  
+  

@@ -28,6 +28,16 @@ export class SidenavComponent implements OnInit {
       icon: 'shop',
       name: 'Product'
     },
+    {
+      path: '/admin/contact',
+      icon: ' contact_phone',
+      name: 'Contact'
+    },
+    {
+      path: '/admin/order-list',
+      icon: ' order',
+      name: 'Order'
+    },
   ]
 
   constructor() { }

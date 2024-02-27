@@ -18,7 +18,9 @@ import { AddcartComponent } from './addcart/addcart.component';
 import { BlogComponent } from './blog/blog.component';
 import { OrderComponent } from './order/order.component';
 import {MatDividerModule} from '@angular/material/divider';
-
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatDialogModule} from '@angular/material/dialog'; 
+import { TrackingComponent } from './tracking/tracking.component';
 
 @NgModule({
   imports: [
@@ -31,11 +33,13 @@ import {MatDividerModule} from '@angular/material/divider';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDividerModule
+    MatDividerModule,
+    MatStepperModule,
+    MatDialogModule
 ],
 
   declarations: [UserComponent,UserHeaderComponent,MenuComponent,
-    ProductComponent,ContactusComponent,AboutusComponent,FooterComponent,BlogComponent,AddcartComponent,OrderComponent],
+    ProductComponent,ContactusComponent,AboutusComponent,FooterComponent,BlogComponent,AddcartComponent,OrderComponent,TrackingComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UserModule { }

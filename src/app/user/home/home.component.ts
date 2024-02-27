@@ -11,6 +11,18 @@ export class HomeComponent implements OnInit {
   constructor(private route:Router) { }
 
   ngOnInit() {
+
+    const storedUser = localStorage.getItem('user');
+
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+
+      if (user.role === 'ROLE_USER') {
+        this.route.navigate(['']);
+      } else if (user.role === 'ROLE_ADMIN') {
+        this.route.navigate(['/admin']);
+      }
+    }
   }
 
 

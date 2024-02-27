@@ -105,7 +105,8 @@ export class AddcartComponent implements OnInit {
     pincode: new FormControl("", [Validators.required]),
     orderItem: new FormControl([] as { productName: string; price: number; quantity: number; image: string }[]),
     user: new FormControl({ id: "" }),
-    grantTotal: new FormControl()
+    grantTotal: new FormControl(),
+    orderStatus:new FormControl("ORDERED")
   });
 
   get firstName() {
@@ -180,4 +181,4 @@ export class AddcartComponent implements OnInit {
       });
     }
   }
-  }
+}

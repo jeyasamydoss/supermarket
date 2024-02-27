@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
+import { ContactComponent } from './contact/contact.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -32,10 +34,10 @@ import { FormsModule } from '@angular/forms';
     MatListModule,
     MatPaginatorModule,
     MatTableModule,
-    FormsModule
+    FormsModule,
 ],
 
-  declarations: [AdminComponent,DashboardComponent,HeaderComponent,SidenavComponent,HomeComponent],
+  declarations: [AdminComponent,DashboardComponent,HeaderComponent,SidenavComponent,HomeComponent,ContactComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AdminModule { }

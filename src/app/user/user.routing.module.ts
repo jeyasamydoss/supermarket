@@ -26,7 +26,7 @@ const routes: Routes = [
       { path: 'addcart', component: AddcartComponent },
       { path: 'blog', component: BlogComponent },
       {path:'order',component:OrderComponent},
-      {path:'payment',component:PaymentComponent}
+      {path:'payment',component:PaymentComponent},
 
 
     ]

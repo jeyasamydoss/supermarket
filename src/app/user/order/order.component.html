@@ -2,10 +2,10 @@
   <h1 class="text-center text-primary  fw-bold border p-2 my-4">Order Details</h1>
   <div *ngFor="let data of orderData" class="container  mb-4 p-4 bg-set">
     <div class="w-100 ">
-      <h2 class="mb-4">Order Id: 1233455677</h2>
-      <div class="row mb-3">
+      <a  (click)="openPopup(data.trackId)" class="mb-4 cursor">Track Id: {{ data.trackId }}</a>      
+         <div class="row mb-3">
         <div class="col-md-6">
-          <p><strong>Order Placed On:</strong> {{ data.createdAt }}</p>
+          <p><strong>Order Placed On:</strong> {{ data.createdAt|date:'dd/MM/yyyy' }}</p>
           <p><strong>Name:</strong> {{ data.firstName }} {{ data.lastName }}</p>
           <p><strong>Address:</strong> {{ data.address }}</p>
         </div>
@@ -42,3 +42,8 @@
     </div>
   </div>
 </div>
+
+
+
+
+
