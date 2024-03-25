@@ -1,21 +1,21 @@
-<div class="text-center ">
-  <h1 class="fw-bold pt-5 text-success border-bottom border-dark">Your Order Status Now</h1>
-  <mat-stepper [linear]="true" [selectedIndex]="activeStepIndex" #stepper class="popup-stepper" [editable]="false" [ngStyle]="{ color: activeStepIndex === 3 ? 'red' : 'inherit' }">
-    <mat-step [editable]="false" [completed]="activeStepIndex >= 0">
+<div class="text-center">
+  <h1 class="fw-bold  t-5 text-success border-bottom border-dark">Your Order Status Now</h1>
+  <mat-stepper [linear]="true" [selectedIndex]="activeStepIndex" #stepper class="popup-stepper" [ngStyle]="{ color: activeStepIndex === 3 ? 'red' : 'inherit' }">
+    <mat-step [disable]="activeStepIndex === 0" [completed]="activeStepIndex >= 0">
       <ng-template matStepLabel>ORDERED</ng-template>
     </mat-step>
-    <mat-step [editable]="true" [completed]="activeStepIndex >= 1">
+    <mat-step [disable]="activeStepIndex === 1" [completed]="activeStepIndex >= 1">
       <ng-template matStepLabel>PROCESS</ng-template>
     </mat-step>
-    <mat-step [editable]="false" [completed]="activeStepIndex >= 2">
+    <mat-step [disable]="activeStepIndex === 2" [completed]="activeStepIndex >= 2">
       <ng-template matStepLabel>DELIVERED</ng-template>
     </mat-step>
-    <mat-step [editable]="false" [completed]="activeStepIndex === 3">
+    <mat-step [disable]="activeStepIndex === 3" [completed]="activeStepIndex === 3">
       <ng-template matStepLabel>REJECT</ng-template>
     </mat-step>
   </mat-stepper>
   <div>
-    <h2 class="fw-bold">{{status}}</h2>
+    <h2 class="fw-bold">{{ status }}</h2>
   </div>
-  <button (click)="close()" class="btn  btn-danger">Close</button>
+  <button (click)="close()" class="btn btn-danger">Close</button>
 </div>

@@ -157,12 +157,23 @@ export class AddcartComponent implements OnInit {
     });
 
     this.api.post('order', this.checkForm.value).subscribe((res) => {
-        console.log(res);
+        if(res){
         this.cartItemStatusChange();
         this.snackBar.showSuccessMessage("Your Order Successfully Registered");
+        this.send();
+      }
     });
+
     }
   })
+  }
+
+  send(){
+    this.api.post('send', this.checkForm.value).subscribe((res) => {
+      console.log(res);
+      this.cartItemStatusChange();
+      this.snackBar.showSuccessMessage("Your Order Successfully Registered");
+  });
   }
   openPopup(): void {
     const dialogRef = this.dialog.open(PaymentComponent, {
